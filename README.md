@@ -1,2 +1,2 @@
 # LeetCode
-LeetCode Solution Code
+LeetCode Solution Code by Tiancheng Gong
