@@ -1,0 +1,60 @@
+public class Solution {
+    public int[][] multiply(int[][] A, int[][] B) {
+        int m = A.length;
+        int n = A[0].length;
+        int p = B[0].length;
+        int[][] result = new int[m][p];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int cur = A[i][j];
+                if (cur != 0) {
+                    for (int k = 0; k < p; k++) {
+                        result[i][k] += B[j][k] * cur;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
+
+
+public class Solution {
+    public int[][] multiply(int[][] A, int[][] B) {
+        ArrayList<Set<Integer>> positionListA = new ArrayList<>();
+        ArrayList<Set<Integer>> positionListB = new ArrayList<>();
+        for (int i = 0; i < A.length; i++) {
+            Set<Integer> set = new HashSet<>();
+            for (int j = 0; j < A[i].length; j++) {
+                if (A[i][j] != 0) {
+                    set.add(j);
+                }
+            }
+            positionListA.add(set);
+        }
+        for (int j = 0; j < B[0].length; j++) {
+            Set<Integer> set = new HashSet<>();
+            for (int i = 0; i < B.length; i++) {
+                if (B[i][j] != 0) {
+                    set.add(i);
+                }
+            }
+            positionListB.add(set);
+        }
+        int[][] result = new int[A.length][B[0].length];
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[0].length; j++) {
+                Set<Integer> setA = positionListA.get(i);
+                Set<Integer> setB = positionListB.get(j);
+                Set<Integer> smaller = (setA.size() < setB.size()) ? setA: setB;
+                Set<Integer> bigger = (setA.size() < setB.size()) ? setB: setA;
+                int sum = 0;
+                for (int k : smaller) {
+                    sum += (bigger.contains(k)) ? A[i][k] * B[k][j] : 0;
+                }
+                result[i][j] = sum;
+            }
+        }
+        return result;
+    }
+}
