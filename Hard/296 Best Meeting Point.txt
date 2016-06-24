@@ -1,0 +1,30 @@
+public class Solution {
+    public int minTotalDistance(int[][] grid) {
+        int count = 0;
+        List<Integer> posX = new ArrayList<>();
+        List<Integer> posY = new ArrayList<>();
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 1) {
+                    count++;
+                    posX.add(j);
+                    posY.add(i);
+                }
+            }
+        }
+        if (count == 0) {
+            return 0;
+        } else {
+            int py = posY.get(count / 2);
+            Collections.sort(posX);
+            int px = posX.get(count / 2);
+            int dis = 0;
+            for (int i = 0; i < posX.size(); i++) {
+                int x = posX.get(i);
+                int y = posY.get(i);
+                dis += Math.abs(px - x) + Math.abs(py - y);
+            }
+            return dis;
+        }
+    }
+}
