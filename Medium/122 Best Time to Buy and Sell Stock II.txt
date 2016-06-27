@@ -1,0 +1,17 @@
+public class Solution {
+    public int maxProfit(int[] prices) {
+        int profit = 0;
+        if (prices == null || prices.length == 0) {
+            return profit;
+        }
+        int temp = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            int cur = prices[i];
+            if (cur > temp) {
+                profit += cur - temp;
+            }
+            temp = cur;
+        }
+        return profit;
+    }
+}
