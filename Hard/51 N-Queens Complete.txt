@@ -1,0 +1,181 @@
+public class Solution {
+
+    public List<List<String>> solveNQueens(int n) {
+
+        // the list of the grids
+        List<List<String>> result = new ArrayList<>();
+
+        // chosen positions for Queens
+        List<Integer> chosenRows = new ArrayList<>();
+        List<Integer> chosenCols = new ArrayList<>();
+
+        // the original possible positions for searching
+        List<Set<Integer>> positions = initializePos(n);
+
+        // rowCounter counts the number of posible positions on each row
+        // rowCounter = [n, n, ..., n] (before searching)
+        int[] rowCounter = initializeCounter(n);
+
+        // sb = "........" n dots
+        StringBuilder dotsSB = initializeSB(n);
+
+        search(positions, rowCounter, chosenRows, chosenCols, result, dotsSB);
+
+        return result;
+    }
+
+
+    // search
+    private void search(List<Set<Integer>> positions, int[] rowCounter,
+                        List<Integer> chosenRows, List<Integer> chosenCols,
+                        List<List<String>> result, StringBuilder dotsSB) {
+        int minRow = findMin(rowCounter);
+        int numOfPositions = rowCounter[minRow];
+
+        // dead end
+        if (numOfPositions == 0) {
+            return;
+        }
+
+        // N Quees are settled
+        if (numOfPositions == Integer.MAX_VALUE) {
+            addGrid(result, dotsSB, chosenRows, chosenCols);
+            return;
+        }
+
+        // need further seaching
+        rowCounter[minRow] = Integer.MAX_VALUE;
+        Set<Integer> colSet = positions.get(minRow);
+        positions.set(minRow, new HashSet<>());
+        chosenRows.add(minRow);
+        List<List<Set<Integer>>> positionsList = new ArrayList<>();
+        PriorityQueue<List<Integer>> deletedPosPQ = new PriorityQueue<>(new Comparator<List<Integer>>() {
+            public int compare(List<Integer> l1, List<Integer> l2) {
+                return l1.size() - l2.size();
+            }
+        });
+        int count = 0;
+        for (Integer col : colSet) {
+            List<Integer> deletedPos = new ArrayList<>();
+            positionsList.add(checkConflict(positions, minRow, col, deletedPos));
+            deletedPos.add(count);
+            count++;
+            deletedPosPQ.add(deletedPos);
+        }
+        while (!deletedPosPQ.isEmpty()) {
+            List<Integer> deletedPos = deletedPosPQ.poll();
+            List<Set<Integer>> newPositions = positionsList.get(deletedPos.get(deletedPos.size() - 1));
+
+            // update chosenRow
+            chosenCols.add(deletedPos.get(0));
+
+            // update rowCounter
+            for (int i = 1; i < deletedPos.size() - 1; i++) {
+                rowCounter[deletedPos.get(i)] -= 1;
+            }
+
+            // recursively call search
+            search(newPositions, rowCounter, chosenRows, chosenCols, result, dotsSB);
+
+            // restore rowCounter
+            for (int i = 1; i < deletedPos.size() - 1; i++) {
+                rowCounter[deletedPos.get(i)] += 1;
+            }
+
+            // restore chosenRow
+            chosenCols.remove(chosenCols.size() - 1);
+        }
+
+        // restore other variables
+        rowCounter[minRow] = numOfPositions;
+        // chosenCols.remove(chosenCols.size() - 1);
+        chosenRows.remove(chosenRows.size() - 1);
+        positions.set(minRow, colSet);
+    }
+
+    // find the row with min number of possible positions
+    private int findMin(int[] rowCounter) {
+        int idx = 0;
+        int temp = rowCounter[0];
+        for (int i = 1; i < rowCounter.length; i++) {
+            if (rowCounter[i] < temp) {
+                temp = rowCounter[i];
+                idx = i;
+            }
+        }
+        return idx;
+    }
+
+
+    // add new N-Queens grid to the result
+    private void addGrid(List<List<String>> result, StringBuilder dotsSB,
+                         List<Integer> chosenRows, List<Integer> chosenCols) {
+        List<String> grid = new ArrayList<>();
+        for (int i = 0; i < chosenRows.size(); i++) {
+            grid.add(null);
+        }
+        for (int i = 0; i < chosenRows.size(); i++) {
+            dotsSB.replace(chosenCols.get(i), chosenCols.get(i) + 1, "Q");
+            String temp = dotsSB.toString();
+            grid.set(chosenRows.get(i), temp);
+            dotsSB.replace(chosenCols.get(i), chosenCols.get(i) + 1, ".");
+        }
+        result.add(grid);
+    }
+
+    // check the conflict when Queen is settled at selected position, return
+    // the deleted positions
+    private List<Set<Integer>> checkConflict(List<Set<Integer>> positions,
+                                             int row, int col, List<Integer> deletedPos) {
+        List<Set<Integer>> newPositions = new ArrayList<>();
+
+        // the first element of deletedPos is the col (chosen col)
+        deletedPos.add(col);
+        for (int i = 0; i < positions.size(); i++) {
+            Set<Integer> rowPos = positions.get(i);
+            Set<Integer> newRowPos = new HashSet<>();
+            if (rowPos.size() > 0) {
+                for (Integer cur_col : rowPos) {
+                    if (cur_col == col || Math.abs(cur_col - col) == Math.abs(i - row)) {
+                        deletedPos.add(i);
+                    } else {
+                        newRowPos.add(cur_col);
+                    }
+                }
+            }
+            newPositions.add(newRowPos);
+        }
+        return newPositions;
+    }
+
+    // initialize the original possible positions
+    private List<Set<Integer>> initializePos(int n) {
+        List<Set<Integer>> pos = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            Set<Integer> row = new HashSet<>();
+            for (int j = 0; j < n; j++) {
+                row.add(j);
+            }
+            pos.add(row);
+        }
+        return pos;
+    }
+
+    // initialize rowCounter
+    private int[] initializeCounter(int n) {
+        int[] counter = new int[n];
+        for (int i = 0; i < n; i++) {
+            counter[i] = n;
+        }
+        return counter;
+    }
+
+    // initialize stringbuilder
+    private StringBuilder initializeSB(int n) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            sb.append('.');
+        }
+        return sb;
+    }
+}

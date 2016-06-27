@@ -1,0 +1,18 @@
+public class Solution {
+    public int minCost(int[][] costs) {
+        int[] prevSum = {0, 0, 0};
+        int[] curSum = {0, 0, 0};
+        if (costs == null || costs.length == 0) {
+            return 0;
+        }
+        for (int[] cost : costs) {
+            curSum[0] = Math.min(prevSum[1], prevSum[2]) + cost[0];
+            curSum[1] = Math.min(prevSum[0], prevSum[2]) + cost[1];
+            curSum[2] = Math.min(prevSum[0], prevSum[1]) + cost[2];
+            prevSum[0] = curSum[0];
+            prevSum[1] = curSum[1];
+            prevSum[2] = curSum[2];
+        }
+        return Math.min(Math.min(curSum[0], curSum[1]), curSum[2]);
+    }
+}

@@ -1,0 +1,24 @@
+public class Solution {
+    public int countComponents(int n, int[][] edges) {
+        int count = n;
+        int[] idx = new int[n];
+        for (int i = 0; i < n ; i++) {
+            idx[i] = i;
+        }
+        for (int[] edge : edges) {
+            int a = edge[0];
+            int b = edge[1];
+            int fa = idx[a];
+            int fb = idx[b];
+            if (fa != fb) {
+                for (int i = 0; i < n; i++) {
+                    if (idx[i] == fb) {
+                        idx[i] = fa;
+                    }
+                }
+                count -= 1;
+            }
+        }
+        return count;
+    }
+}
