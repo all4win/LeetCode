@@ -1,0 +1,17 @@
+public class Solution {
+    public int[] getModifiedArray(int length, int[][] updates) {
+        int[] result = new int[length];
+        for (int[] operation : updates) {
+            result[operation[0]] += operation[2];
+            if (operation[1] < length - 1) {
+                result[operation[1] + 1] -= operation[2];
+            }
+        }
+        int temp = 0;
+        for (int i = 0; i < length; i++) {
+            temp += result[i];
+            result[i] = temp;
+        }
+        return result;
+    }
+}
