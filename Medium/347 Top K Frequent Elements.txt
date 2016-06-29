@@ -1,0 +1,50 @@
+import java.util.*;
+
+public class Solution {
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        // count the number frequency
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            map.putIfAbsent(nums[i], 0);
+            map.put(nums[i], map.get(nums[i]) + 1);
+        }
+        // move the map entry to a list
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            list.add(entry);
+        }
+        // quicksort (k th select sort)
+        quicksort(list, k, 0, list.size() - 1);
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+            result.add(list.get(i).getKey());
+        }
+        return result;
+    }
+    
+    // quicksort kth select
+    private void quicksort(List<Map.Entry<Integer, Integer>> list, int k, int start, int end) {
+        int pivot = list.get(start).getValue();
+        int pointer = start + 1;
+        for (int i = start + 1; i <= end; i++) {
+            if (list.get(i).getValue() > pivot) {
+                Map.Entry<Integer, Integer> temp = list.get(i);
+                list.set(i, list.get(pointer));
+                list.set(pointer, temp);
+                pointer += 1;
+            }
+        }
+        Map.Entry<Integer, Integer> temp = list.get(pointer - 1);
+        list.set(pointer - 1, list.get(start));
+        list.set(start, temp);
+
+        if (pointer == k) {
+            return;
+        } else if (pointer > k) {
+            end = pointer;
+        } else {
+            start = pointer;
+        }
+        quicksort(list, k, start, end);
+    }
+}
