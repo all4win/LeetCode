@@ -1,0 +1,40 @@
+public class Solution {
+    public int[] sortTransformedArray(int[] nums, int a, int b, int c) {
+        int[] result = new int[nums.length];
+        double pivot = (a != 0) ? (- b + 0.0) / (2 * a) :  nums[0];
+        boolean isLargest = a < 0 || (a == 0 && b < 0);
+        int right = 0;
+        double diff = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            if (diff > Math.abs(nums[i] - pivot)) {
+                diff = Math.abs(nums[i] - pivot);
+                right = i;
+            }
+        }
+        int left = right - 1;
+        int i = 0;
+        while (right < nums.length && left >= 0) {
+            int j = isLargest ? (nums.length - 1 - i) : i;
+            if (Math.abs(nums[left] - pivot) < Math.abs(nums[right] - pivot)) {
+                result[j] = calculate(nums[left], a, b, c);
+                left -= 1;
+            } else {
+                result[j] = calculate(nums[right], a, b, c);
+                right += 1;
+            }
+            i += 1;
+        }
+        while (i < nums.length) {
+            int j = isLargest ? (nums.length - 1 - i) : i;
+            result[j] = (left < 0) ? calculate(nums[right], a, b, c) : calculate(nums[left], a, b, c);
+            left -= 1;
+            right += 1;
+            i += 1;
+        }
+        return result;
+    }
+
+    private int calculate(int n, int a, int b, int c) {
+        return a * n * n + b * n + c;
+    }
+}
