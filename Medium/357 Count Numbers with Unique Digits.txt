@@ -1,0 +1,14 @@
+public class Solution {
+    public int countNumbersWithUniqueDigits(int n) {
+        int[] count = new int[11];
+        count[0] = 1;
+        count[1] = 10;
+        int max = (n > 10) ? 10 : n;
+        int temp = 9;
+        for (int i = 2; i <= max; i++) {
+            temp = temp * (11 - i);
+            count[i] = count[i - 1] + temp;
+        }
+        return count[max];
+    }
+}

@@ -1,0 +1,20 @@
+public class Solution {
+    public int integerBreak(int n) {
+        if (n == 2) {
+            return 1;
+        }
+        if (n == 3) {
+            return 2;
+        }
+        int times = n / 3;
+        int remains = n % 3;
+        int p = (int) Math.pow(3, times);
+        if (remains == 0) {
+            return p;
+        }
+        if (remains == 1) {
+            return p / 3 * 4;
+        }
+        return p * 2;
+    }
+}

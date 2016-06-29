@@ -1,0 +1,68 @@
+public class Solution {
+    public List<String> generateAbbreviations(String word) {
+        List<String> abbrevList = new ArrayList<>();
+        if (word.length() == 0) {
+            abbrevList.add("");
+        } else if (word.length() == 1) {
+            abbrevList.add(word);
+            abbrevList.add("1");
+        } else {
+            String lastPattern = "[0-9]+$";
+            String firstPattern = "^[0-9]+";
+            String left = word.substring(0, word.length() / 2);
+            String right = word.substring(word.length() / 2, word.length());
+            List<String> leftList = generateAbbreviations(left);
+            List<String> rightList = generateAbbreviations(right);
+            for (String l : leftList) {
+                for (String r : rightList) {
+                    String ls = l.replaceAll(lastPattern, "");
+                    String rs = r.replaceAll(firstPattern, "");
+                    if (ls.length() != l.length() && rs.length() != r.length()) {
+                        int ln = Integer.parseInt(l.substring(ls.length()));
+                        int rn = Integer.parseInt(r.substring(0, r.length() - rs.length()));
+                        int i = ln + rn;
+                        abbrevList.add(ls + i + rs);
+                    } else {
+                        abbrevList.add(l + r);
+                    }
+                }
+            }
+        }
+        return abbrevList;
+    }
+}
+
+public class Solution {
+    public List<String> generateAbbreviations(String word) {
+        List<String> abbrevList = new ArrayList<>();
+        if (word.length() == 0) {
+            abbrevList.add("");
+        } else {
+            String curString = "";
+            int start = 0;
+            int end = word.length();
+            int count = 0;
+            dfs(curString, start, end, count, abbrevList, word);
+        }
+        return abbrevList;
+    }
+    
+    private void dfs(String curString, int start, int end,
+        int count, List<String> abbrevList, String original) {
+        if (start < end) {
+            dfs(curString, start + 1, end, count + 1, abbrevList, original);
+            String newString = "";
+            if (count > 0) {
+                newString += count;
+                count = 0;
+            }
+            newString = curString + newString + original.charAt(start);
+            dfs(newString, start + 1, end, count, abbrevList, original);
+        } else {
+            if (count > 0) {
+                curString += count;
+            }
+            abbrevList.add(curString);
+        }
+    }
+}
