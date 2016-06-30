@@ -1,0 +1,46 @@
+public class Solution {
+    public int findDuplicate(int[] nums) {
+        int start = 1;
+        int end = nums.length - 1;
+        while (start < end) {
+            int mid = (start + end) / 2;
+            if (iteration(start, mid, nums)) {
+                end = mid;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return start;
+    }
+    
+    private boolean iteration(int start, int end, int[] nums) {
+        int count = 0;
+        for (int i : nums) {
+            if ((i <= end) && (i >= start)) {
+                count += 1;
+                if (count > end - start + 1) {
+                    return true;
+                } 
+            }
+        }
+        return false;
+    }
+}
+
+public class Solution {
+    public int findDuplicate(int[] nums) {
+        int slow = nums[0];
+        int fast = nums[nums[0]];
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }
+        fast = 0;
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
+}
+
