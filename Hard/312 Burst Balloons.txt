@@ -1,0 +1,26 @@
+public class Solution {
+    public int maxCoins(int[] nums) {
+
+        // re-define the array
+        int[] newNums = new int[nums.length + 2];
+        newNums[0] = 1;
+        newNums[newNums.length - 1] = 1;
+        for (int i = 0; i < nums.length; i++) {
+            newNums[i + 1] = nums[i];
+        }
+        
+        int[][] coins = new int[newNums.length][newNums.length];
+        for (int k = 1; k <= nums.length; k++) {
+            for (int left = 0; left < newNums.length - 1 - k; left++) {
+                int right = left + k + 1;
+                for (int last = left + 1; last < right; last++) {
+                    int temp = coins[left][last] + coins[last][right]
+                        + newNums[left] * newNums[last] * newNums[right];
+                    coins[left][right] = Math.max(coins[left][right], temp);
+                }
+            }
+        }
+        
+        return coins[0][newNums.length - 1];
+    }
+}

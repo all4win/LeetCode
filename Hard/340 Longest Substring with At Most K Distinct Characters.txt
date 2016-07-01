@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Solution {
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        if (k <= 0) {
+            return 0;
+        }
+        int length = 0;
+        int start = 0;
+        int end = 0;
+        Hashtable<Character, Integer> lastTable = new Hashtable<>();
+        while (end < s.length()) {
+            if (lastTable.size() <= k) {
+                lastTable.put(s.charAt(end), end);
+                length = Math.max(end - start, length);
+                end += 1;
+                if (end == s.length() && lastTable.size() <= k) {
+                    length = Math.max(end - start, length);
+                }
+            } else {
+                while (start != lastTable.get(s.charAt(start))) {
+                    start += 1;
+                }
+                lastTable.remove(s.charAt(start));
+                start += 1;
+            }
+        }
+        return length;
+    }
+}
