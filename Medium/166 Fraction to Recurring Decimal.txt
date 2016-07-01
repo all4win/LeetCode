@@ -1,0 +1,71 @@
+import java.util.*;
+
+public class Solution {
+    public String fractionToDecimal(int numerator, int denominator) {
+
+        // check case: numerator = 0
+        if (numerator == 0) {
+            return "0";
+        }
+
+        // add signs
+        StringBuilder sb = new StringBuilder();
+        if (numerator < 0 && denominator > 0 || numerator > 0 && denominator < 0) {
+            sb.append('-');
+        } else {
+            sb.append('+');
+        }
+        
+        // long type for -2147483648 s.o.b.
+        long n = Math.abs((long)numerator);
+        long d = Math.abs((long)denominator);
+
+        Hashtable<Long, Integer> remainTable = new Hashtable<>();
+        long remain = n;
+        boolean afterDot = false;
+        int count = 0;
+        while (remain != 0) {
+            if (remain < d) {
+                if (!afterDot) {
+                    sb.append(".");
+                    afterDot = true;
+                }
+                if (afterDot) {
+                    if (remainTable.containsKey(remain)) {
+                        count -= remainTable.get(remain);
+                        break;
+                    } else {
+                        remainTable.put(remain, count);
+                        count += 1;
+                    }
+                }
+                remain *= 10;
+            }
+            sb.append(remain / d);
+            remain %= d;
+        }
+        
+        // add recursion part
+        if (count > 0 && afterDot && remain != 0) {
+            sb.insert(sb.length() - count, '(');
+            sb.append(')');
+        }
+
+        //  remove 0s at the most significant positions
+        while (sb.charAt(1) == '0') {
+            sb.deleteCharAt(1);
+        }
+        
+        // add 0 before dot
+        if (sb.charAt(1) == '.') {
+            sb.insert(1, '0');
+        }
+        
+        // remove "+" sign
+        if (sb.charAt(0) == '+') {
+            sb.deleteCharAt(0);
+        }
+
+        return sb.toString();
+    }
+}
