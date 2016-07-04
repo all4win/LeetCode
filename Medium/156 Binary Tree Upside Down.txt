@@ -1,0 +1,69 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode upsideDownBinaryTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode cur = root;
+        TreeNode prev = null;
+        TreeNode right = null;
+        while (cur != null) {
+            TreeNode temp = cur.left;
+            cur.left = right;
+            right = cur.right;
+            cur.right = prev;
+            prev = cur;
+            cur = temp;
+        }
+        return prev;
+    }
+}
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode upsideDownBinaryTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while (cur != null) {
+            stack.push(cur);
+            stack.push(cur.right);
+            cur = cur.left;
+        }
+        stack.pop();
+        TreeNode newHead = stack.pop();
+        cur = newHead;
+        while (!stack.isEmpty()) {
+            cur.left = stack.pop();
+            if (cur.left != null) {
+                cur.left.left = null;
+                cur.left.right = null;
+            }
+            cur.right = stack.pop();
+            if (cur.right != null) {
+                cur.right.left = null;
+                cur.right.right = null;
+            }
+            cur = cur.right;
+        }
+        return newHead;
+    }
+}
