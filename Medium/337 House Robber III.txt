@@ -1,0 +1,86 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+import java.util.*;
+
+public class Solution {
+    public int rob(TreeNode root) {
+        HashMap<TreeNode, Integer> robMap = new HashMap<>();
+        HashMap<TreeNode, Integer> notRobMap = new HashMap<>();
+        return Math.max(robThis(root, robMap, notRobMap),
+            notRobThis(root, robMap, notRobMap));
+    }
+    
+    private int robThis(TreeNode root, HashMap<TreeNode, Integer> robMap,
+        HashMap<TreeNode, Integer> notRobMap) {
+        if (robMap.containsKey(root)) {
+            return robMap.get(root);
+        }
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null && root.right == null) {
+            return root.val;
+        }
+        int value = root.val + notRobThis(root.left, robMap, notRobMap)
+                + notRobThis(root.right, robMap, notRobMap);
+        robMap.put(root, value);
+        return value;
+        
+    }
+    
+    private int notRobThis(TreeNode root, HashMap<TreeNode, Integer> robMap,
+        HashMap<TreeNode, Integer> notRobMap) {
+        if (notRobMap.containsKey(root)) {
+            return notRobMap.get(root);
+        }
+        int value = 0;
+        if (root != null) {
+            value = Math.max(robThis(root.left, robMap, notRobMap), notRobThis(root.left, robMap, notRobMap))
+            + Math.max(robThis(root.right, robMap, notRobMap), notRobThis(root.right, robMap, notRobMap));
+        }
+        notRobMap.put(root, value);
+        return value;
+    }
+}
+
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class Solution {
+    public int rob(TreeNode root) {
+        int[] vals = DProb(root);
+        return Math.max(vals[0], vals[1]);
+    }
+    
+    private int[] DProb(TreeNode root) {
+        // vals[0]: not rob current root
+        // vals[1]: rob current root
+        int[] vals = new int[2];
+        
+        if (root == null) {
+            return vals;
+        }
+        int[] left = DProb(root.left);
+        int[] right = DProb(root.right);
+        
+        vals[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+        vals[1] = root.val + left[0] + right[0];
+        
+        return vals;
+    }
+}
