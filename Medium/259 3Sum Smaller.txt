@@ -1,0 +1,23 @@
+public class Solution {
+    public int threeSumSmaller(int[] nums, int target) {
+        Arrays.sort(nums);
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int num1 = nums[i];
+            if (num1 * 3 >= target) {
+                break;
+            }
+            int j = i + 1;
+            int k = nums.length - 1;
+            while (j < k) {
+                if (nums[j] + nums[k] >= target - num1) {
+                    k -= 1;
+                } else {
+                    count += k - j;
+                    j += 1;
+                }
+            }
+        }
+        return count;
+    }
+}
