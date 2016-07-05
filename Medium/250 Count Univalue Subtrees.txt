@@ -1,0 +1,40 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int countUnivalSubtrees(TreeNode root) {
+        int[] res = search(root);
+        return res[2];
+    }
+    
+    private int[] search(TreeNode node) {
+        // res[0] : null is 0, uni is 1, not uni is 2
+        // res[1] : node.val
+        // res[2] : how many uni subtrees of the node
+        int[] res = new int[3];
+        if (node == null) {
+            return res;
+        }
+        int[] left = search(node.left);
+        int[] right = search(node.right);
+        res[0] = 1;
+        res[1] = node.val;
+        if ((left[0] == 2 || right[0] == 2)
+            || (left[0] == 1 && left[1] != res[1])
+            || (right[0] == 1 && right[1] != res[1])
+            || (left[0] == 1 && right[0] == 1 && left[1] != right[1])) {
+            res[0] = 2;    
+        }
+        res[2] = left[2] + right[2];
+        if (res[0] == 1) {
+            res[2] += 1;
+        }
+        return res;
+    }
+}

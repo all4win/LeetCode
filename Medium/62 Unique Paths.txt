@@ -1,0 +1,16 @@
+public class Solution {
+    public int uniquePaths(int m, int n) {
+        if (m <= 0 || n <= 0) {
+            return 0;
+        }
+        int small = Math.min(m, n);
+        int sum = m + n;
+        int result = 1;
+        int temp = 1;
+        for (int i = 1; i <= small; i++) {
+            result *= sum - i;
+            temp *= i;
+        }
+        return result/temp;
+    }
+}

@@ -1,0 +1,24 @@
+public class Solution {
+    public List<List<Integer>> combinationSum3(int k, int n) {
+        List<List<Integer>> combinations = new ArrayList<>();
+        search(combinations, 0, k, n, new ArrayList<>());
+        return combinations;
+    }
+    
+    private void search(List<List<Integer>> combinations, int low,
+        int k, int n, List<Integer> cur) {
+        if (n == 0 && k == 0) {
+            combinations.add(cur);
+            return;
+        }
+        if (n < low * k || n > 9 * k) {
+            return;
+        }
+        for (int i = low + 1; i <= 9; i++) {
+            List<Integer> temp = new ArrayList<>();
+            temp.addAll(cur);
+            temp.add(i);
+            search(combinations, i, k - 1, n - i, temp);
+        }
+    }
+}

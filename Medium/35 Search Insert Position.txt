@@ -1,0 +1,23 @@
+public class Solution {
+    public int searchInsert(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        return findIDX(nums, 0, nums.length - 1, target);
+    }
+    
+    private int findIDX(int[] nums, int start, int end, int target) {
+        if (start == end) {
+            if (start == nums.length - 1 && nums[start] < target) {
+                start += 1;
+            }
+            return start;
+        }
+        int mid = (end - start) / 2 + start;
+        if (nums[mid] < target) {
+            return findIDX(nums, mid + 1, end, target);
+        } else {
+            return findIDX(nums, start, mid, target);
+        }
+    }
+}
