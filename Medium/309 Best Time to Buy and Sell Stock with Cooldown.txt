@@ -1,0 +1,37 @@
+public class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+        int[] profits = new int[prices.length];
+        profits[0] = 0;
+        int tempMax = 0;
+        for (int i = 1; i < prices.length; i++) {
+            tempMax = Math.max(tempMax, prices[i] - Math.min(prices[0], prices[1]));
+            for (int j = i - 1; j > 1; j--) {
+                tempMax = Math.max(tempMax, profits[j - 2] + prices[i] - prices[j]);
+            }
+            profits[i] = tempMax;
+        }
+        return tempMax;
+    }
+}
+
+public class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+        int[] hold = new int[prices.length + 1];
+        int[] sold = new int[prices.length + 1];
+        hold[0] = 0;
+        sold[0] = 0;
+        hold[1] = - prices[0];
+        sold[1] = 0;
+        for (int i = 2; i <= prices.length; i++) {
+            hold[i] = Math.max(sold[i - 2] - prices[i - 1], hold[i - 1]);
+            sold[i] = Math.max(sold[i - 1], hold[i - 1] + prices[i - 1]);
+        }
+        return sold[prices.length];
+    }
+}
