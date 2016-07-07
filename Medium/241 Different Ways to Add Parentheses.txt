@@ -1,0 +1,37 @@
+public class Solution {
+    public List<Integer> diffWaysToCompute(String input) {
+        HashMap<String, List<Integer>> map = new HashMap<>();
+        return dp(input, map);
+    }
+    
+    private List<Integer> dp(String s, HashMap<String, List<Integer>> map) {
+        List<Integer> result = new ArrayList<Integer>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '+' || c == '-' || c == '*') {
+                String l = s.substring(0, i);
+                String r = s.substring(i + 1);
+            
+                List<Integer> left = map.containsKey(l) ? map.get(l) : dp(l, map);
+                List<Integer> right = map.containsKey(r) ? map.get(r) : dp(r, map);
+            
+                for (int numl : left) {
+                    for (int numr : right) {
+                        if (c == '+') {
+                            result.add(numl + numr);
+                        } else if (c == '-') {
+                            result.add(numl - numr);
+                        } else if (c == '*') {
+                            result.add(numl * numr);
+                        } 
+                    }
+                }
+            }
+        } 
+        if (result.size() == 0) { //when there is only an integer
+            result.add(Integer.parseInt(s));
+        }
+        map.put(s, result);
+        return result; 
+    }
+}

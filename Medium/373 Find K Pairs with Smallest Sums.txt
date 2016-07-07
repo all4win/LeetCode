@@ -1,0 +1,43 @@
+public class Solution {
+    public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+        
+        List<int[]> list = new ArrayList<>();
+        if (nums1 == null || nums1.length == 0
+            ||nums2 == null || nums2.length == 0) {
+            return list;
+        }
+        
+        PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+            public int compare(int[] pair1, int[] pair2) {
+                return nums1[pair1[0]] + nums2[pair1[1]]
+                    - nums1[pair2[0]] - nums2[pair2[1]];
+            }
+        });
+        
+        int[] temp = new int[2];
+        pq.add(temp);
+        int count = 0;
+        
+        while (k > 0 && !pq.isEmpty()) {
+            temp = pq.poll();
+            int[] res = new int[2];
+            int i1 = temp[0];
+            int i2 = temp[1];
+            res[0] = nums1[i1];
+            res[1] = nums2[i2];
+            list.add(res);
+            if (i1 + 1 < nums1.length) {
+                temp[0] = i1 + 1;
+                pq.add(temp);
+            }
+            if (i1 == 0 && i2 == count && count + 1 < nums2.length) {
+                count += 1;
+                int[] newArray = new int[2];
+                newArray[1] = count;
+                pq.add(newArray);
+            }
+            k -= 1;
+        }
+        return list;
+    }
+}
