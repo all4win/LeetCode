@@ -1,0 +1,18 @@
+public class Solution {
+    public int superPow(int a, int[] b) {
+        int magicNum = 1337;
+        a = a % magicNum;
+        int prod = 1;
+        for (int i = b.length - 1; i >= 0; i--) {
+            int temp = 1;
+            for (int j = 0; j <= 9; j++) {
+                if (b[i] == j) {
+                    prod = (prod * temp) % magicNum;
+                }
+                temp = (temp * a) % magicNum;
+            }
+            a = temp;
+        }
+        return prod;
+    }
+}
