@@ -18,7 +18,6 @@ out.write('\n')
 out.write('Hard:\n')
 
 readme.write('\n')
-readme.write('Medium:\n')
 readme.write('* Hard:\n')
 hard = os.listdir('C:\\study\\wordpress\\LeetCode\\Hard')
 for name in hard:

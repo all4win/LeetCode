@@ -59,7 +59,6 @@ Covered Questions
 	* 372 Super Pow
 	* 373 Find K Pairs with Smallest Sums
 
-Medium:
 * Hard:
 	* 051 N-Queens Complete
 	* 051 N-Queens
