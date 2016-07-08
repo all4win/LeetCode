@@ -61,15 +61,15 @@ Covered Questions
 
 Medium:
 * Hard:
-	*051 N-Queens Complete
-	*051 N-Queens
-	*145 Binary Tree Postorder Traversal
-	*146 LRU Cache
-	*159 Longest Substring with At Most Two Distinct Characters
-	*265 Paint House II
-	*287 Find the Duplicate Number
-	*291 Word Pattern II
-	*296 Best Meeting Point
-	*305 Number of Islands II
-	*312 Burst Balloons
-	*340 Longest Substring with At Most K Distinct Characters
+	* 051 N-Queens Complete
+	* 051 N-Queens
+	* 145 Binary Tree Postorder Traversal
+	* 146 LRU Cache
+	* 159 Longest Substring with At Most Two Distinct Characters
+	* 265 Paint House II
+	* 287 Find the Duplicate Number
+	* 291 Word Pattern II
+	* 296 Best Meeting Point
+	* 305 Number of Islands II
+	* 312 Burst Balloons
+	* 340 Longest Substring with At Most K Distinct Characters
