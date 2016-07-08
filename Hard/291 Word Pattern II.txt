@@ -1,0 +1,41 @@
+public class Solution {
+    public boolean wordPatternMatch(String pattern, String str) {
+        HashMap<Character, String> map = new HashMap<>();
+        Set<String> stringSet = new HashSet<>();
+        return search(map, stringSet, str, pattern, 0);
+    }
+    
+    private boolean search(HashMap<Character, String> map, Set<String> stringSet,
+        String str, String pattern, int i) {
+        if (i == pattern.length()) {
+            if (str.length() == 0) {
+                return true;
+            }
+            return false;
+        }
+        Character c = pattern.charAt(i);
+        String value = map.get(c);
+        if (value != null) {
+            int len = value.length();
+            if (str.length() < len || !str.substring(0, len).equals(value)) {
+                return false;
+            } else {
+                return search(map, stringSet, str.substring(len), pattern, i + 1);
+            }
+        } else {
+            for (int j = 1; pattern.length() - i - 2 < str.length() - j; j++) {
+                String s = str.substring(0, j);
+                if (!stringSet.contains(s)) {
+                    map.put(c, s);
+                    stringSet.add(s);
+                    if (search(map, stringSet, str.substring(j), pattern, i + 1)) {
+                        return true;
+                    }
+                    map.remove(c);
+                    stringSet.remove(s);
+                }
+            }
+        }
+        return false;
+    }
+}
