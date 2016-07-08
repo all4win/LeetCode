@@ -12,7 +12,7 @@ readme.write('* Medium:\n')
 medium = os.listdir('C:\\study\\wordpress\\LeetCode\\Medium')
 for name in medium:
     out.write(name[0: -4] + '\n')
-    readme.write('	*' + name[0: -4] + '\n')
+    readme.write('	* ' + name[0: -4] + '\n')
 
 out.write('\n')
 out.write('Hard:\n')
