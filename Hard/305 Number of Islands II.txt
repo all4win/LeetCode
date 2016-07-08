@@ -1,0 +1,59 @@
+public class Solution {
+    public List<Integer> numIslands2(int m, int n, int[][] positions) {
+        List<Integer> result = new ArrayList<>();
+        if (positions == null || positions.length == 0 || m <= 0 || n <= 0) {
+            return result;
+        }
+        int[] height = new int[m * n];
+        int[] id = new int[m * n];
+        for (int i = 0; i < id.length; i++) {
+            id[i] = i;
+        }
+        int count = 0;
+        for (int[] position : positions) {
+            int x = position[0];
+            int y = position[1];
+            int cur = n * x + y;
+            count += 1;
+            height[cur] = 1;
+            if (x > 0) {
+                count += unionFind(height, id, cur, cur - n);
+            }
+            if (x < m - 1) {
+                count += unionFind(height, id, cur, cur + n);
+            }
+            if (y > 0) {
+                count += unionFind(height, id, cur, cur - 1);
+            }
+            if (y < n - 1) {
+                count += unionFind(height, id, cur, cur + 1);
+            }
+            result.add(count);
+        }
+        return result;
+    }
+    
+    private int unionFind(int[] height, int[] id, int pos1, int pos2) {
+        int root1 = findRoot(pos1, id);
+        int root2 = findRoot(pos2, id);
+        if (height[root2] != 0 && root1 != root2) {
+            if (height[root2] == height[root1]) {
+                id[root1] = root2;
+                height[root2] += 1;
+            } else {
+                int min = (height[root1] < height[root2]) ? root1 : root2;
+                int max = (height[root1] > height[root2]) ? root1 : root2;
+                id[min] = max;
+            }
+            return -1;
+        }
+        return 0;
+    }
+    
+    private int findRoot(int pos, int[] id) {
+        while (id[pos] != pos) {
+            pos = id[pos];
+        }
+        return pos;
+    }
+}
