@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium:
+* Medium: 57
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
 	* 035 Search Insert Position
@@ -14,6 +14,7 @@ Covered Questions
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
 	* 108 Convert Sorted Array to Binary Search Tree
+	* 116 Populating Next Right Pointers in Each Node
 	* 122 Best Time to Buy and Sell Stock II
 	* 136 Single Number
 	* 137 Single Number II
@@ -22,12 +23,14 @@ Covered Questions
 	* 156 Binary Tree Upside Down
 	* 166 Fraction to Recurring Decimal
 	* 167 Two Sum II - Input array is sorted
+	* 199 Binary Tree Right Side View
 	* 216 Combination Sum III
 	* 230 Kth Smallest Element in a BST
 	* 238 Product of Array Except Self
 	* 241 Different Ways to Add Parentheses
 	* 245 Shortest Word Distance III
 	* 250 Count Univalue Subtrees
+	* 254 Factor Combinations
 	* 256 Paint House
 	* 259 3Sum Smaller
 	* 260 Single Number III
@@ -59,7 +62,7 @@ Covered Questions
 	* 372 Super Pow
 	* 373 Find K Pairs with Smallest Sums
 
-* Hard:
+* Hard: 12
 	* 051 N-Queens Complete
 	* 051 N-Queens
 	* 145 Binary Tree Postorder Traversal

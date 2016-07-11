@@ -1,0 +1,25 @@
+public class Solution {
+    public List<List<Integer>> getFactors(int n) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (n < 4) {
+            return result;
+        }
+        search(result, 2, new ArrayList<Integer>(), n);
+        result.remove(result.size() - 1);
+        return result;
+    }
+    
+    private void search(List<List<Integer>> result, 
+        int min, List<Integer> comb, int remain) {
+        for (int i = min; i <= Math.sqrt(remain); i++) {
+            if (remain % i == 0) {
+                comb.add(i);
+                search(result, i, comb, remain / i);
+                comb.remove(comb.size() - 1);
+            }
+        }
+        comb.add(remain);
+        result.add(new ArrayList<Integer> (comb));
+        comb.remove(comb.size() - 1);
+    }
+}
