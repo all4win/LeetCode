@@ -3,13 +3,15 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 57
+* Medium: 63
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
 	* 035 Search Insert Position
 	* 046 Permutations
 	* 053 Maximum Subarray
+	* 059 Spiral Matrix II
 	* 062 Unique Paths
+	* 064 Minimum Path Sum
 	* 089 Gray Code
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
@@ -23,11 +25,13 @@ Covered Questions
 	* 156 Binary Tree Upside Down
 	* 166 Fraction to Recurring Decimal
 	* 167 Two Sum II - Input array is sorted
+	* 173 Binary Search Tree Iterator
 	* 199 Binary Tree Right Side View
 	* 216 Combination Sum III
 	* 230 Kth Smallest Element in a BST
 	* 238 Product of Array Except Self
 	* 241 Different Ways to Add Parentheses
+	* 244 Shortest Word Distance II
 	* 245 Shortest Word Distance III
 	* 250 Count Univalue Subtrees
 	* 254 Factor Combinations
@@ -37,10 +41,12 @@ Covered Questions
 	* 268 Missing Number
 	* 280 Wiggle Sort
 	* 281 Zigzag Iterator
+	* 285 Inorder Successor in BST
 	* 294 Flip Game II
 	* 298 Binary Tree Longest Consecutive Sequence
 	* 309 Best Time to Buy and Sell Stock with Cooldown
 	* 311 Sparse Matrix Multiplication
+	* 313 Super Ugly Number
 	* 318 Maximum Product of Word Lengths
 	* 319 Bulb Switcher
 	* 320 Generalized Abbreviation

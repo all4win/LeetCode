@@ -1,0 +1,27 @@
+public class Solution {
+    public int[][] generateMatrix(int n) {
+        int[][] result = new int[n][n];
+        fill(result, 0, 1, n);
+        return result;
+    }
+    
+    private void fill(int[][] result, int k, int start, int n) {
+        if (n < 1) {
+            return;
+        }
+        if (n == 1) {
+            result[k][k] = start;
+            return;
+        }
+        n -= 1;
+        for (int i = 0; i < n; i++) {
+            result[k][k + i] = start;
+            result[k + i][k + n] = start + n;
+            result[k + n][k + n - i] = start + 2 * n;
+            result[k + n - i][k] = start + 3 * n;
+            start += 1;
+        }
+        start += 3 * n;
+        fill(result, k + 1, start, n - 1);
+    }
+}

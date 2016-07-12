@@ -1,0 +1,59 @@
+// V1. O(nk) space, O(nk*log(nk)) time
+
+public class Solution {
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        if (n == 1) {
+            return 1;
+        }
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.add(1);
+        for (int prime : primes) {
+            pq.add(prime);
+        }
+        int prev = 0;
+        while (n > 0) {
+            int cur = pq.poll();
+            if (cur != prev) {
+                prev = cur;
+                n -= 1;
+                for (int prime : primes) {
+                    if (((long) prev) * prime < Integer.MAX_VALUE) {
+                        pq.add(prev * prime);
+                    }
+                }
+            }
+        }
+        return prev;
+    }
+}
+
+// V3.5. O(n) space, O(n*log(k)) time
+
+public class Solution {
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        int[] res = new int[n];
+        res[0] = 1;
+        PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+            public int compare(int[] a, int[] b) {
+                return a[0] - b[0];
+            }
+        });
+        for (int prime : primes) {
+            int[] temp = {prime, 0};
+            pq.add(temp);
+        }
+        for (int i = 1; i < n; i++) {
+            int[] cur = pq.poll();
+            int prime = cur[0] / res[cur[1]];
+            if (cur[0] > res[i - 1]) {
+                res[i] = cur[0];
+            } else {
+                i -= 1;
+            }
+            cur[1] += 1;
+            cur[0] = res[cur[1]] * prime;
+            pq.add(cur);
+        }
+        return res[n - 1];
+    }
+}
