@@ -1,0 +1,101 @@
+// 27 ms O(mn)
+
+public class WordDistance {
+    HashMap<String, List<Integer>> map;
+
+    public WordDistance(String[] words) {
+        map = new HashMap<>();
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            map.putIfAbsent(word, new ArrayList<Integer>());
+            map.get(word).add(i);
+        }
+    }
+
+    public int shortest(String word1, String word2) {
+        List<Integer> list1 = map.get(word1);
+        List<Integer> list2 = map.get(word2);
+        int min = Integer.MAX_VALUE;
+        for (int num1 : list1) {
+            for (int num2 : list2) {
+                int temp = Math.abs(num1 - num2);
+                min = temp < min ? temp : min;
+            }
+        }
+        return min;
+    }
+}
+
+// 16 ms O(m + n)
+
+public class WordDistance {
+    HashMap<String, List<Integer>> map;
+
+    public WordDistance(String[] words) {
+        map = new HashMap<>();
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            map.putIfAbsent(word, new ArrayList<Integer>());
+            map.get(word).add(i);
+        }
+    }
+
+    public int shortest(String word1, String word2) {
+        List<Integer> list1 = map.get(word1);
+        List<Integer> list2 = map.get(word2);
+        int min = findMin(list1, list2);
+        return min;
+    }
+
+    private int findMin(List<Integer> list1, List<Integer> list2) {
+        if (list1.get(0) < list2.get(0)) {
+            return findMin(list2, list1);
+        }
+        int min = Integer.MAX_VALUE;
+        int j = 1;
+        for (int i = 0; i < list1.size(); i++) {
+            int a = list1.get(i);
+            while (j < list2.size() && a > list2.get(j)) {
+                j++;
+            }
+            int temp = a - list2.get(j - 1);
+            if (j < list2.size()) {
+                temp = (temp < list2.get(j) - a) ? temp : list2.get(j) - a;
+            }
+            min = min < temp ? min : temp;
+        }
+        return min;
+    }
+}
+
+// elegant
+public class WordDistance {
+    
+    Map<String, List<Integer>> map = null;
+    
+    public WordDistance(String[] words) {
+        map = new HashMap<String, ArrayList<Integer>>();
+        for (int i = 0; i < words.length; i++) {
+            if (!map.containsKey(words[i])) {
+                map.put(words[i], new ArrayList<Integer>());
+            }
+            map.get(words[i]).add(i);
+        }
+    }
+
+    public int shortest(String word1, String word2) {
+        List<Integer> list1 = map.get(word1);
+        List<Integer> list2 = map.get(word2);
+        int i = 0, j = 0;
+        int min = Integer.MAX_VALUE;
+        while (i < list1.size() && j < list2.size()) {
+            min = Math.min(min, Math.abs(list1.get(i) - list2.get(j)));
+            if (list1.get(i) < list2.get(j)) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return min;
+    }
+}
