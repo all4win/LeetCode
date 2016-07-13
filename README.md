@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 63
+* Medium: 64
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
 	* 035 Search Insert Position
@@ -34,6 +34,7 @@ Covered Questions
 	* 244 Shortest Word Distance II
 	* 245 Shortest Word Distance III
 	* 250 Count Univalue Subtrees
+	* 253 Meeting Rooms II
 	* 254 Factor Combinations
 	* 256 Paint House
 	* 259 3Sum Smaller
