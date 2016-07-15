@@ -70,7 +70,7 @@ public class WordDistance {
 
 // elegant
 public class WordDistance {
-    
+
     HashMap<String, ArrayList<Integer>> map = null;
     
     public WordDistance(String[] words) {
