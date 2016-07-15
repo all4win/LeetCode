@@ -71,7 +71,7 @@ public class WordDistance {
 // elegant
 public class WordDistance {
     
-    Map<String, List<Integer>> map = null;
+    HashMap<String, ArrayList<Integer>> map = null;
     
     public WordDistance(String[] words) {
         map = new HashMap<String, ArrayList<Integer>>();

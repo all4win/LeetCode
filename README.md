@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 63
+* Medium: 64
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
 	* 035 Search Insert Position
@@ -34,6 +34,7 @@ Covered Questions
 	* 244 Shortest Word Distance II
 	* 245 Shortest Word Distance III
 	* 250 Count Univalue Subtrees
+	* 253 Meeting Rooms II
 	* 254 Factor Combinations
 	* 256 Paint House
 	* 259 3Sum Smaller
@@ -68,9 +69,10 @@ Covered Questions
 	* 372 Super Pow
 	* 373 Find K Pairs with Smallest Sums
 
-* Hard: 12
+* Hard: 13
 	* 051 N-Queens Complete
 	* 051 N-Queens
+	* 052 N-Queens
 	* 145 Binary Tree Postorder Traversal
 	* 146 LRU Cache
 	* 159 Longest Substring with At Most Two Distinct Characters
