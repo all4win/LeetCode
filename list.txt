@@ -38,6 +38,7 @@ Medium:
 280 Wiggle Sort
 281 Zigzag Iterator
 285 Inorder Successor in BST
+286 Walls and Gates
 294 Flip Game II
 298 Binary Tree Longest Consecutive Sequence
 309 Best Time to Buy and Sell Stock with Cooldown
@@ -63,6 +64,7 @@ Medium:
 370 Range Addition
 372 Super Pow
 373 Find K Pairs with Smallest Sums
+375 Guess Number Higher or Lower II
 
 Hard:
 051 N-Queens Complete

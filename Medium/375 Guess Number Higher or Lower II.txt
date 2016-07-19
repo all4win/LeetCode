@@ -1,0 +1,23 @@
+public class Solution {
+    public int getMoneyAmount(int n) {
+        int[][] cost = new int[n + 1][n + 1];
+        return getCost(cost, 1, n);
+    }
+    
+    private int getCost(int[][] cost, int start, int end) {
+        if (start >= end) {
+            return 0;
+        }
+        if (cost[start][end] != 0) {
+            return cost[start][end];
+        }
+        int totalCost = Integer.MAX_VALUE;
+        for (int i = start; i <= end; i++) {
+            int tempCost = i;
+            tempCost += Math.max(getCost(cost, start, i - 1), getCost(cost, i + 1, end));
+            totalCost = Math.min(totalCost, tempCost);
+        }
+        cost[start][end] = totalCost;
+        return totalCost;
+    }
+}

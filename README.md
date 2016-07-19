@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 64
+* Medium: 66
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
 	* 035 Search Insert Position
@@ -43,6 +43,7 @@ Covered Questions
 	* 280 Wiggle Sort
 	* 281 Zigzag Iterator
 	* 285 Inorder Successor in BST
+	* 286 Walls and Gates
 	* 294 Flip Game II
 	* 298 Binary Tree Longest Consecutive Sequence
 	* 309 Best Time to Buy and Sell Stock with Cooldown
@@ -68,6 +69,7 @@ Covered Questions
 	* 370 Range Addition
 	* 372 Super Pow
 	* 373 Find K Pairs with Smallest Sums
+	* 375 Guess Number Higher or Lower II
 
 * Hard: 13
 	* 051 N-Queens Complete
