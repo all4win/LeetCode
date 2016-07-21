@@ -1,0 +1,39 @@
+public class Solution {
+    public void gameOfLife(int[][] board) {
+        int[][] directions = {{1, 1}, {1, 0}, {1, -1}, {0, 1}, {0, -1}, {-1, -1}, {-1, 0}, {-1, 1}};
+        int m = board.length;
+        int n = board[0].length;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                calculate(board, i, j, directions, m, n);
+            }
+        }
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                update(board, i, j);
+            }
+        }
+    }
+    
+    private void calculate(int[][] board, int i, int j,
+        int[][] directions, int m, int n) {
+        int count = 0;
+        for (int[] dir : directions) {
+            int x = i + dir[0];
+            int y = j + dir[1];
+            if (x >= 0 && x < m && y >= 0 && y < n) {
+                if (board[x][y] % 10 == 1) {
+                    count += 1;
+                }
+            }
+        }
+        if ((board[i][j] == 1 && (count == 2 || count == 3))
+            || (board[i][j] == 0 && count == 3)) {
+            board[i][j] += 10;
+        }
+    }
+    
+    private void update(int[][] board, int i, int j) {
+        board[i][j] /= 10;
+    }
+}

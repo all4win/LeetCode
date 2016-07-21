@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 72
+* Medium: 75
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
 	* 035 Search Insert Position
@@ -38,6 +38,7 @@ Covered Questions
 	* 244 Shortest Word Distance II
 	* 245 Shortest Word Distance III
 	* 250 Count Univalue Subtrees
+	* 251 Flatten 2D Vector
 	* 253 Meeting Rooms II
 	* 254 Factor Combinations
 	* 256 Paint House
@@ -48,6 +49,7 @@ Covered Questions
 	* 281 Zigzag Iterator
 	* 285 Inorder Successor in BST
 	* 286 Walls and Gates
+	* 289 Game of Life
 	* 294 Flip Game II
 	* 298 Binary Tree Longest Consecutive Sequence
 	* 300 Longest Increasing Subsequence
@@ -59,6 +61,7 @@ Covered Questions
 	* 320 Generalized Abbreviation
 	* 323 Number of Connected Components in an Undirected Graph
 	* 328 Odd Even Linked List
+	* 334 Increasing Triplet Subsequence
 	* 337 House Robber III
 	* 338 Counting Bits
 	* 343 Integer Break
