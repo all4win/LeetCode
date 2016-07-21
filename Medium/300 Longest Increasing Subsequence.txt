@@ -1,0 +1,29 @@
+public class Solution {
+    public int lengthOfLIS(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int[] mins = new int[nums.length + 1];
+        mins[0] = Integer.MIN_VALUE;
+        int maxLen = 0;
+        for (int num : nums) {
+            int idx = bs(mins, num, maxLen);
+            mins[idx] = num;
+            maxLen = Math.max(idx, maxLen);
+        }
+        return maxLen;
+    }
+    
+    private int bs(int[] mins, int target, int end) {
+        int start = 0;
+        while (start < end) {
+            int mid = end - (end - start) / 2;
+            if (mins[mid] >= target) {
+                end = mid - 1;
+            } else {
+                start = mid;
+            }
+        }
+        return start + 1;
+    }
+}

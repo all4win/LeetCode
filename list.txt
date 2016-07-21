@@ -3,10 +3,13 @@ Medium:
 022 Generate Parentheses
 035 Search Insert Position
 046 Permutations
+048 Rotate Image
 053 Maximum Subarray
 059 Spiral Matrix II
 062 Unique Paths
 064 Minimum Path Sum
+075 Sort Colors
+077 Combinations
 089 Gray Code
 094 Binary Tree Inorder Traversal
 096 Unique Binary Search Trees
@@ -25,6 +28,7 @@ Medium:
 216 Combination Sum III
 230 Kth Smallest Element in a BST
 238 Product of Array Except Self
+240 Search a 2D Matrix II
 241 Different Ways to Add Parentheses
 244 Shortest Word Distance II
 245 Shortest Word Distance III
@@ -41,6 +45,7 @@ Medium:
 286 Walls and Gates
 294 Flip Game II
 298 Binary Tree Longest Consecutive Sequence
+300 Longest Increasing Subsequence
 309 Best Time to Buy and Sell Stock with Cooldown
 311 Sparse Matrix Multiplication
 313 Super Ugly Number
@@ -65,6 +70,7 @@ Medium:
 372 Super Pow
 373 Find K Pairs with Smallest Sums
 375 Guess Number Higher or Lower II
+376 Wiggle Subsequence
 
 Hard:
 051 N-Queens Complete

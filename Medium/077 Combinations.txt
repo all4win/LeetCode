@@ -1,0 +1,25 @@
+public class Solution {
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (n < k || k < 1 || n < 1) {
+            return result;
+        }
+        search(new ArrayList<Integer>(), k, 1, n, result);
+        return result;
+    }
+    
+    private void search(List<Integer> curList, int remain,
+        int start, int n, List<List<Integer>> result) {
+        if (remain == 0) {
+            List<Integer> list = new ArrayList<>();
+            list.addAll(curList);
+            result.add(list);
+            return;
+        }
+        for (int i = start; i + remain < n + 2; i++) {
+            curList.add(i);
+            search(curList, remain - 1, i + 1, n, result);
+            curList.remove(curList.size() - 1);
+        }
+    }
+}
