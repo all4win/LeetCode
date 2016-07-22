@@ -1,0 +1,27 @@
+public class Solution {
+    public int maxArea(int[] height) {
+        int max = 0;
+        if (height != null && height.length > 1) {
+            int start = 0;
+            int end = height.length - 1;
+            int width = height.length - 1;
+            while (start < end) {
+                max = Math.max(Math.min(height[start], height[end]) * width, max);
+                if (height[start] < height[end]) {
+                    int sign = height[start];
+                    while (width > 0 && height[start] <= sign) {
+                        start += 1;
+                        width -= 1;
+                    }
+                } else {
+                    int sign = height[end];
+                    while (width > 0 && height[end] <= sign) {
+                        end -= 1;
+                        width -= 1;
+                    }
+                }
+            }
+        }
+        return max;
+    }
+}

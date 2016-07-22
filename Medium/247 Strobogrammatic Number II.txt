@@ -1,0 +1,32 @@
+public class Solution {
+    public List<String> findStrobogrammatic(int n) {
+        List<String> result = new ArrayList<>();
+        if (n == 0) {
+            return result;
+        }
+        if (n % 2 == 1) {
+            result.add("0");
+            result.add("1");
+            result.add("8");
+        } else {
+            result.add("");
+        }
+        n /= 2;
+        int[] nums1 = {0, 1, 6, 9, 8};
+        int[] nums2 = {0, 1, 9, 6, 8};
+        while (n > 0) {
+            List<String> temp = new ArrayList<>();
+            int start = (n == 1) ? 1 : 0;
+            for (String s : result) {
+                int i = start;
+                while (i < nums1.length) {
+                    temp.add(nums1[i] + s + nums2[i]);
+                    i += 1;
+                }
+            }
+            result = temp;
+            n -= 1;
+        }
+        return result;
+    }
+}

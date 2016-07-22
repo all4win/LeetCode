@@ -3,7 +3,8 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 75
+* Medium: 79
+	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
 	* 035 Search Insert Position
@@ -30,6 +31,7 @@ Covered Questions
 	* 167 Two Sum II - Input array is sorted
 	* 173 Binary Search Tree Iterator
 	* 199 Binary Tree Right Side View
+	* 215 Kth Largest Element in an Array
 	* 216 Combination Sum III
 	* 230 Kth Smallest Element in a BST
 	* 238 Product of Array Except Self
@@ -37,6 +39,7 @@ Covered Questions
 	* 241 Different Ways to Add Parentheses
 	* 244 Shortest Word Distance II
 	* 245 Shortest Word Distance III
+	* 247 Strobogrammatic Number II
 	* 250 Count Univalue Subtrees
 	* 251 Flatten 2D Vector
 	* 253 Meeting Rooms II
@@ -45,6 +48,7 @@ Covered Questions
 	* 259 3Sum Smaller
 	* 260 Single Number III
 	* 268 Missing Number
+	* 277 Find the Celebrity
 	* 280 Wiggle Sort
 	* 281 Zigzag Iterator
 	* 285 Inorder Successor in BST
