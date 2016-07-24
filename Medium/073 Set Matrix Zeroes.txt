@@ -1,0 +1,67 @@
+public class Solution {
+    public void setZeroes(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return;
+        }
+        int head = -1;
+        int prev = -1;
+        boolean firstColHasZero = false;
+        
+        // check first column
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i][0] == 0) {
+                firstColHasZero = true;
+                break;
+            }
+        }
+        
+        // build the linkedlist
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 0) {
+                    if (head == -1) {
+                        head = i;
+                    } else {
+                        matrix[prev][0] = i;
+                    }
+                    prev = i;
+                    break;
+                }
+            }
+        }
+        
+        // check whether the matrix has at least a zero
+        if (head == -1) {
+            return;
+        // set tail
+        } else {
+            matrix[prev][0] = -1;
+        }
+        
+        // set columns zeros if zero exists except the first one
+        for (int j = 1; j < matrix[0].length; j++) {
+            for (int i = 0; i < matrix.length; i++) {
+                if (matrix[i][j] == 0) {
+                    for (int ii = 0; ii < matrix.length; ii++) {
+                        matrix[ii][j] = 0;
+                    }
+                    break;
+                }
+            }
+        }
+        
+        // set rows zeros
+        while (head != -1) {
+            int next = matrix[head][0];
+            Arrays.fill(matrix[head], 0);
+            head = next;
+        }
+        
+        // set the first column zeros if necessary
+        if (firstColHasZero) {
+            for (int i = 0; i < matrix.length; i++) {
+                matrix[i][0] = 0;
+            }
+        }
+    }
+}

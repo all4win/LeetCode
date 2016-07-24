@@ -1,0 +1,57 @@
+public class Solution {
+    public int maxKilledEnemies(char[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        
+        int[][] enemyCount = new int[grid.length][2];
+        for (int i = 0; i < enemyCount.length; i++) {
+            enemyCount[i][0] = -1;
+        }
+        
+        int max = 0;
+        for (int j = 0; j < grid[0].length; j++) {
+            int colEnemy = countColEnemy(grid, j, 0);
+            for (int i = 0; i < grid.length; i++) {
+                if (grid[i][j] == '0') {
+                    if (j > enemyCount[i][0]) {
+                        update(enemyCount, grid, i, j);
+                    }
+                    max = Math.max(colEnemy + enemyCount[i][1], max);
+                }
+                if (grid[i][j] == 'W') {
+                    colEnemy = countColEnemy(grid, j, i + 1);
+                }
+            }
+        }
+        return max;
+    }
+    
+    private void update(int[][] enemyCount, char[][] grid, int i, int j) {
+        int count = 0;
+        int k = enemyCount[i][0] + 1;
+        while (k < grid[0].length && (grid[i][k] != 'W' || k < j)) {
+            if (grid[i][k] == 'E') {
+                count += 1;
+            }
+            if (grid[i][k] == 'W') {
+                count = 0;
+            }
+            k += 1;
+        }
+        enemyCount[i][0] = k;
+        enemyCount[i][1] = count;
+    }
+    
+    private int countColEnemy(char[][] grid, int j, int start) {
+        int count = 0;
+        int i = start;
+        while (i < grid.length && grid[i][j] != 'W') {
+            if (grid[i][j] == 'E') {
+                count += 1;
+            }
+            i += 1;
+        }
+        return count;
+    }
+}

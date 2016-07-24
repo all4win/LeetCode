@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 79
+* Medium: 86
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
@@ -14,6 +14,8 @@ Covered Questions
 	* 059 Spiral Matrix II
 	* 062 Unique Paths
 	* 064 Minimum Path Sum
+	* 073 Set Matrix Zeroes
+	* 074 Search a 2D Matrix
 	* 075 Sort Colors
 	* 077 Combinations
 	* 089 Gray Code
@@ -27,6 +29,7 @@ Covered Questions
 	* 144 Binary Tree Preorder Traversal
 	* 153 Find Minimum in Rotated Sorted Array
 	* 156 Binary Tree Upside Down
+	* 162 Find Peak Element
 	* 166 Fraction to Recurring Decimal
 	* 167 Two Sum II - Input array is sorted
 	* 173 Binary Search Tree Iterator
@@ -47,10 +50,13 @@ Covered Questions
 	* 256 Paint House
 	* 259 3Sum Smaller
 	* 260 Single Number III
+	* 261 Graph Valid Tree
 	* 268 Missing Number
 	* 277 Find the Celebrity
+	* 279 Perfect Squares
 	* 280 Wiggle Sort
 	* 281 Zigzag Iterator
+	* 284 Peeking Iterator
 	* 285 Inorder Successor in BST
 	* 286 Walls and Gates
 	* 289 Game of Life
@@ -73,6 +79,7 @@ Covered Questions
 	* 348 Design Tic-Tac-Toe
 	* 357 Count Numbers with Unique Digits
 	* 360 Sort Transformed Array
+	* 361 Bomb Enemy
 	* 362 Design Hit Counter
 	* 364 Nested List Weight Sum II
 	* 366 Find Leaves of Binary Tree
