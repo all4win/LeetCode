@@ -3,11 +3,12 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 86
+* Medium: 90
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
 	* 035 Search Insert Position
+	* 039 Combination Sum
 	* 046 Permutations
 	* 048 Rotate Image
 	* 053 Maximum Subarray
@@ -18,12 +19,14 @@ Covered Questions
 	* 074 Search a 2D Matrix
 	* 075 Sort Colors
 	* 077 Combinations
+	* 080 Remove Duplicates from Sorted Array II
 	* 089 Gray Code
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
 	* 108 Convert Sorted Array to Binary Search Tree
 	* 116 Populating Next Right Pointers in Each Node
 	* 122 Best Time to Buy and Sell Stock II
+	* 129 Sum Root to Leaf Numbers
 	* 136 Single Number
 	* 137 Single Number II
 	* 144 Binary Tree Preorder Traversal
@@ -90,6 +93,7 @@ Covered Questions
 	* 373 Find K Pairs with Smallest Sums
 	* 375 Guess Number Higher or Lower II
 	* 376 Wiggle Subsequence
+	* 377 Combination Sum IV
 
 * Hard: 13
 	* 051 N-Queens Complete

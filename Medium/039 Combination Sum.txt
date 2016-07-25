@@ -1,0 +1,26 @@
+public class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (candidates == null || candidates.length == 0) {
+            return result;
+        }
+        Arrays.sort(candidates);
+        search(result, candidates, target, new ArrayList<Integer>(), 0);
+        return result;
+    }
+    
+    private void search(List<List<Integer>> result, int[] candidates, int target,
+        List<Integer> temp, int start) {
+        if (target == 0) {
+            List<Integer> newList = new ArrayList<>();
+            newList.addAll(temp);
+            result.add(newList);
+            return;
+        }
+        for (int i = start; i < candidates.length && candidates[i] <= target; i++) {
+            temp.add(candidates[i]);
+            search(result, candidates, target - candidates[i], temp, i);
+            temp.remove(temp.size() - 1);
+        }
+    }
+}
