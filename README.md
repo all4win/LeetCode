@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 90
+* Medium: 93
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
@@ -19,6 +19,7 @@ Covered Questions
 	* 074 Search a 2D Matrix
 	* 075 Sort Colors
 	* 077 Combinations
+	* 078 Subsets
 	* 080 Remove Duplicates from Sorted Array II
 	* 089 Gray Code
 	* 094 Binary Tree Inorder Traversal
@@ -55,6 +56,8 @@ Covered Questions
 	* 260 Single Number III
 	* 261 Graph Valid Tree
 	* 268 Missing Number
+	* 274 H-Index
+	* 275 H-Index II
 	* 277 Find the Celebrity
 	* 279 Perfect Squares
 	* 280 Wiggle Sort

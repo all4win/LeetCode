@@ -1,0 +1,23 @@
+public class Solution {
+    public int hIndex(int[] citations) {
+        if (citations == null || citations.length == 0) {
+            return 0;
+        }
+        int start = 0;
+        int end = citations.length - 1;
+        while (start <= end) {
+            int mid = (end - start) / 2 + start;
+            int i = citations.length - mid;
+            if (citations[mid] >= i && (mid == 0 || citations[mid - 1] <= i)) {
+                return i;
+            } else {
+                if (citations[mid] >= i) {
+                    end = mid;
+                } else {
+                    start = mid + 1;
+                }
+            }
+        }
+        return citations.length - start;
+    }
+}
