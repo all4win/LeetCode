@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 93
+* Medium: 96
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
@@ -21,6 +21,7 @@ Covered Questions
 	* 077 Combinations
 	* 078 Subsets
 	* 080 Remove Duplicates from Sorted Array II
+	* 081 Search in Rotated Sorted Array II
 	* 089 Gray Code
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
@@ -34,6 +35,7 @@ Covered Questions
 	* 153 Find Minimum in Rotated Sorted Array
 	* 156 Binary Tree Upside Down
 	* 162 Find Peak Element
+	* 163 Missing Ranges
 	* 166 Fraction to Recurring Decimal
 	* 167 Two Sum II - Input array is sorted
 	* 173 Binary Search Tree Iterator
@@ -77,6 +79,7 @@ Covered Questions
 	* 320 Generalized Abbreviation
 	* 323 Number of Connected Components in an Undirected Graph
 	* 328 Odd Even Linked List
+	* 331 Verify Preorder Serialization of a Binary Tree
 	* 334 Increasing Triplet Subsequence
 	* 337 House Robber III
 	* 338 Counting Bits
@@ -98,7 +101,8 @@ Covered Questions
 	* 376 Wiggle Subsequence
 	* 377 Combination Sum IV
 
-* Hard: 13
+* Hard: 14
+	* 033 Search in Rotated Sorted Array
 	* 051 N-Queens Complete
 	* 051 N-Queens
 	* 052 N-Queens

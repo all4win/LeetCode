@@ -1,0 +1,21 @@
+public class Solution {
+    public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+        List<String> ranges = new ArrayList<>();
+        int start = lower;
+        for (int num : nums) {
+            if (num > start) {
+                add(ranges, start, num - 1);
+            }
+            start = num + 1;
+        }
+        if (start <= upper) {
+            add(ranges, start, upper);
+        }
+        return ranges;
+    }
+    
+    private void add(List<String> ranges, int start, int end) {
+        String s = (start == end) ? (start + "") : (start + "->" + end);
+        ranges.add(s);
+    }
+}
