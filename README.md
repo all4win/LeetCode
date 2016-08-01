@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 96
+* Medium: 105
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
@@ -14,6 +14,7 @@ Covered Questions
 	* 053 Maximum Subarray
 	* 059 Spiral Matrix II
 	* 062 Unique Paths
+	* 063 Unique Paths II
 	* 064 Minimum Path Sum
 	* 073 Set Matrix Zeroes
 	* 074 Search a 2D Matrix
@@ -22,16 +23,20 @@ Covered Questions
 	* 078 Subsets
 	* 080 Remove Duplicates from Sorted Array II
 	* 081 Search in Rotated Sorted Array II
+	* 086 Partition List
 	* 089 Gray Code
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
 	* 108 Convert Sorted Array to Binary Search Tree
 	* 116 Populating Next Right Pointers in Each Node
+	* 120 Triangle
 	* 122 Best Time to Buy and Sell Stock II
 	* 129 Sum Root to Leaf Numbers
 	* 136 Single Number
 	* 137 Single Number II
+	* 142 Linked List Cycle II
 	* 144 Binary Tree Preorder Traversal
+	* 147 Insertion Sort List
 	* 153 Find Minimum in Rotated Sorted Array
 	* 156 Binary Tree Upside Down
 	* 162 Find Peak Element
@@ -74,6 +79,7 @@ Covered Questions
 	* 309 Best Time to Buy and Sell Stock with Cooldown
 	* 311 Sparse Matrix Multiplication
 	* 313 Super Ugly Number
+	* 314 Binary Tree Vertical Order Traversal
 	* 318 Maximum Product of Word Lengths
 	* 319 Bulb Switcher
 	* 320 Generalized Abbreviation
@@ -83,6 +89,7 @@ Covered Questions
 	* 334 Increasing Triplet Subsequence
 	* 337 House Robber III
 	* 338 Counting Bits
+	* 341 Flatten Nested List Iterator
 	* 343 Integer Break
 	* 347 Top K Frequent Elements
 	* 348 Design Tic-Tac-Toe
@@ -93,6 +100,7 @@ Covered Questions
 	* 364 Nested List Weight Sum II
 	* 366 Find Leaves of Binary Tree
 	* 367 Valid Perfect Square
+	* 368 Largest Divisible Subset
 	* 369 Plus One Linked List
 	* 370 Range Addition
 	* 372 Super Pow
@@ -100,6 +108,7 @@ Covered Questions
 	* 375 Guess Number Higher or Lower II
 	* 376 Wiggle Subsequence
 	* 377 Combination Sum IV
+	* 378 Kth Smallest Element in a Sorted Matrix
 
 * Hard: 14
 	* 033 Search in Rotated Sorted Array
