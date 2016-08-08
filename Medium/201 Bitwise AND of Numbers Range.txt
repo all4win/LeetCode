@@ -1,0 +1,11 @@
+public class Solution {
+    public int rangeBitwiseAnd(int m, int n) {
+        int bit = 0;
+        while (m != n) {
+            m = m >> 1;
+            n = n >> 1;
+            bit += 1;
+        }
+        return m << bit;
+    }
+}

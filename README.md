@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 105
+* Medium: 113
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
@@ -25,9 +25,13 @@ Covered Questions
 	* 081 Search in Rotated Sorted Array II
 	* 086 Partition List
 	* 089 Gray Code
+	* 090 Subsets II
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
+	* 103 Binary Tree Zigzag Level Order Traversal
 	* 108 Convert Sorted Array to Binary Search Tree
+	* 109 Convert Sorted List to Binary Search Tree
+	* 114 Flatten Binary Tree to Linked List
 	* 116 Populating Next Right Pointers in Each Node
 	* 120 Triangle
 	* 122 Best Time to Buy and Sell Stock II
@@ -45,6 +49,8 @@ Covered Questions
 	* 167 Two Sum II - Input array is sorted
 	* 173 Binary Search Tree Iterator
 	* 199 Binary Tree Right Side View
+	* 201 Bitwise AND of Numbers Range
+	* 213 House Robber II
 	* 215 Kth Largest Element in an Array
 	* 216 Combination Sum III
 	* 230 Kth Smallest Element in a BST
@@ -109,6 +115,8 @@ Covered Questions
 	* 376 Wiggle Subsequence
 	* 377 Combination Sum IV
 	* 378 Kth Smallest Element in a Sorted Matrix
+	* 379 Design Phone Directory
+	* 380 Insert Delete GetRandom O(1)
 
 * Hard: 14
 	* 033 Search in Rotated Sorted Array

@@ -1,0 +1,25 @@
+public class Solution {
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        int first1 = 0;
+        int first2 = 0;
+        int notFirst1 = 0;
+        int notFirst2 = 0;
+        for (int i = 1; i < nums.length; i++) {
+            int temp = first2 + nums[i - 1];
+            first2 = Math.max(first1, first2);
+            first1 = temp;
+            temp = notFirst2 + nums[i];
+            notFirst2 = Math.max(notFirst1, notFirst2);
+            notFirst1 = temp;
+        }
+        int sum1 = Math.max(first1, first2);
+        int sum2 = Math.max(notFirst1, notFirst2);
+        return Math.max(sum1, sum2);
+    }
+}
