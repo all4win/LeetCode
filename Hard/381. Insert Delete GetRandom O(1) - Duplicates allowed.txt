@@ -1,0 +1,71 @@
+import java.util.Random;
+
+public class RandomizedCollection {
+
+    HashMap<Integer, Set<Integer>> map;
+    List<Integer> nums;
+    int size;
+    
+    /** Initialize your data structure here. */
+    public RandomizedCollection() {
+        map = new HashMap<>();
+        nums = new ArrayList<>();
+        size = 0;
+    }
+    
+    /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+    public boolean insert(int val) {
+        boolean res = true;
+        if (map.containsKey(val)) {
+            res = false;
+        } else {
+            map.put(val, new HashSet<>());
+        }
+        map.get(val).add(size);
+        nums.add(val);
+        size += 1;
+        return res;
+    }
+    
+    /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+    public boolean remove(int val) {
+        if (map.isEmpty() || !map.containsKey(val)) {
+            return false;
+        }
+        
+        size -= 1;
+        int lastNum = nums.get(size);
+        Set<Integer> idxSet = map.get(val);
+        if (lastNum != val) {
+            int idx = idxSet.iterator().next();
+            Set<Integer> lastNumIdxSet = map.get(lastNum);
+            lastNumIdxSet.remove(size);
+            lastNumIdxSet.add(idx);
+            nums.set(idx, lastNum);
+        }
+        
+        if (idxSet.size() == 1) {
+            map.remove(val);
+        } else {
+            idxSet.remove(size);
+        }
+        
+        nums.remove(size);
+        return true;
+        
+    }
+    
+    /** Get a random element from the collection. */
+    public int getRandom() {
+        Random random = new Random();
+        return nums.get(random.nextInt(size));
+    }
+}
+
+/**
+ * Your RandomizedCollection object will be instantiated and called as such:
+ * RandomizedCollection obj = new RandomizedCollection();
+ * boolean param_1 = obj.insert(val);
+ * boolean param_2 = obj.remove(val);
+ * int param_3 = obj.getRandom();
+ */
