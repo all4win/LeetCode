@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 112
+* Medium: 115
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
@@ -116,6 +116,9 @@ Covered Questions
 	* 377 Combination Sum IV
 	* 378 Kth Smallest Element in a Sorted Matrix
 	* 379 Design Phone Directory
+	* 382 Linked List Random Node
+	* 384 Shuffle an Array
+	* 388 Longest Absolute File Path
 
 * Hard: 16
 	* 033 Search in Rotated Sorted Array

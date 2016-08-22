@@ -111,6 +111,9 @@ Medium:
 377 Combination Sum IV
 378 Kth Smallest Element in a Sorted Matrix
 379 Design Phone Directory
+382 Linked List Random Node
+384 Shuffle an Array
+388 Longest Absolute File Path
 
 Hard:
 033 Search in Rotated Sorted Array
