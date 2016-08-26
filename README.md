@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 115
+* Medium: 117
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
@@ -68,6 +68,7 @@ Covered Questions
 	* 259 3Sum Smaller
 	* 260 Single Number III
 	* 261 Graph Valid Tree
+	* 264 Ugly Number II
 	* 268 Missing Number
 	* 274 H-Index
 	* 275 H-Index II
@@ -118,6 +119,7 @@ Covered Questions
 	* 379 Design Phone Directory
 	* 382 Linked List Random Node
 	* 384 Shuffle an Array
+	* 386 Lexicographical Numbers
 	* 388 Longest Absolute File Path
 
 * Hard: 16

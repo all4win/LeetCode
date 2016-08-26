@@ -1,0 +1,30 @@
+public class Solution {
+    public int nthUglyNumber(int n) {
+        int[] res = new int[n];
+        res[0] = 1;
+        int[] prod = {2, 3, 5};
+        int[] primes = {2, 3, 5};
+        int[] idx = {0, 0, 0};
+
+        for (int i = 1; i < n; i++) {
+            int k = 0;
+            if (prod[1] <= prod[0] && prod[1] <= prod[2]) {
+                k = 1;
+            }
+            if (prod[2] <= prod[0] && prod[2] <= prod[1]) {
+                k = 2;
+            }
+            
+            int cur = prod[k];
+            if (cur > res[i - 1]) {
+                res[i] = cur;
+            } else {
+                i -= 1;
+            }
+            
+            idx[k] += 1;
+            prod[k] = res[idx[k]] * primes[k];
+        }
+        return res[n - 1];
+    }
+}

@@ -1,0 +1,17 @@
+public class Solution {
+    public List<Integer> lexicalOrder(int n) {
+        List<Integer> result = new ArrayList<Integer>();
+        append(1, n, result);
+        return result;
+    }
+
+    private void append(int m, int n, List<Integer> result) {
+        result.add(m);
+        if (m * 10 <= n) {
+            append(m * 10, n, result);
+        }
+        if (m < n && m % 10 < 9) {
+            append(m + 1, n, result);
+        }
+    }
+}
