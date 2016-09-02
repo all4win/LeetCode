@@ -3,10 +3,11 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 118
+* Medium: 120
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
+	* 034 Search for a Range
 	* 035 Search Insert Position
 	* 039 Combination Sum
 	* 046 Permutations
@@ -26,6 +27,7 @@ Covered Questions
 	* 086 Partition List
 	* 089 Gray Code
 	* 090 Subsets II
+	* 092 Reverse Linked List II
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
 	* 103 Binary Tree Zigzag Level Order Traversal

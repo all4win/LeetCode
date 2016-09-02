@@ -9,7 +9,7 @@ readme.write('\n')
 
 out.write('Medium:\n')
 readme.write('* Medium: ')
-medium = os.listdir('C:\\study\\wordpress\\LeetCode\\Medium')
+medium = os.listdir(os.path.join(os.path.abspath('.'), 'Medium'))
 readme.write(str(len(medium)) + '\n')
 for name in medium:
 	out.write(name[0: -4] + '\n')
@@ -21,7 +21,7 @@ readme.write('\n')
 
 out.write('Hard:\n')
 readme.write('* Hard: ')
-hard = os.listdir('C:\\study\\wordpress\\LeetCode\\Hard')
+hard = os.listdir(os.path.join(os.path.abspath('.'), 'Hard'))
 readme.write(str(len(hard)) + '\n')
 for name in hard:
 	out.write(name[0: -4] + '\n')
