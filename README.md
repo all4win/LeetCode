@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 117
+* Medium: 118
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 022 Generate Parentheses
@@ -29,6 +29,7 @@ Covered Questions
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
 	* 103 Binary Tree Zigzag Level Order Traversal
+	* 106 Construct Binary Tree from Inorder and Postorder Traversal
 	* 108 Convert Sorted Array to Binary Search Tree
 	* 109 Convert Sorted List to Binary Search Tree
 	* 114 Flatten Binary Tree to Linked List
