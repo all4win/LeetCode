@@ -3,9 +3,10 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 121
+* Medium: 124
 	* 011 Container With Most Water
 	* 012 Integer to Roman
+	* 016 3Sum Closest
 	* 022 Generate Parentheses
 	* 034 Search for a Range
 	* 035 Search Insert Position
@@ -31,9 +32,11 @@ Covered Questions
 	* 094 Binary Tree Inorder Traversal
 	* 096 Unique Binary Search Trees
 	* 103 Binary Tree Zigzag Level Order Traversal
+	* 105 Construct Binary Tree from Preorder and Inorder Traversal
 	* 106 Construct Binary Tree from Inorder and Postorder Traversal
 	* 108 Convert Sorted Array to Binary Search Tree
 	* 109 Convert Sorted List to Binary Search Tree
+	* 113 Path Sum II
 	* 114 Flatten Binary Tree to Linked List
 	* 116 Populating Next Right Pointers in Each Node
 	* 120 Triangle

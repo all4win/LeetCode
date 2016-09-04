@@ -1,0 +1,33 @@
+public class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        Set<Integer> set = new HashSet<>();
+        int closet = nums[0] + nums[1] + nums[2];
+        int diff = Math.abs(closet - target);
+        int i = 0;
+        while (i < nums.length - 2 && nums[i] <= target / 3 && diff > 0) {
+            int j = i + 1;
+            int k = nums.length - 1;
+            while (j < k && diff > 0) {
+                int sum  = nums[i] + nums[j] + nums[k];
+                if (Math.abs(sum - target) < diff) {
+                    closet = sum;
+                    diff = Math.abs(sum - target);
+                }
+                if (sum < target) {
+                    j += 1;
+                } else {
+                    k -= 1;
+                }
+            }
+            i++;
+        }
+        if (i < nums.length - 2) {
+            int sum  = nums[i] + nums[i + 1] + nums[i + 2];
+            if (Math.abs(sum - target) < diff) {
+                closet = sum;
+            }
+        }
+        return closet;
+    }
+}
