@@ -1,0 +1,102 @@
+Solution 1 (Original Solution): Recursion
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<TreeNode> generateTrees(int n) {
+        if (n == 0) {
+            return new ArrayList<TreeNode>();
+        } else {
+            return generate(1, n);
+        }
+    }
+    
+    private List<TreeNode> generate(int start, int end){
+        List<TreeNode> result = new ArrayList<TreeNode>();
+        
+        if (start > end) {
+            result.add(null);
+            return result;
+        }
+     
+        for (int root = start; root <= end; root++) {
+            List<TreeNode> left = generate(start, root - 1);
+            List<TreeNode> right = generate(root + 1, end);
+            for (TreeNode leftNode: left) {
+                for (TreeNode rightNode: right) {
+                    TreeNode rootNode = new TreeNode(root);  
+                    rootNode.left = leftNode;
+                    rootNode.right = rightNode;
+                    result.add(rootNode);
+                }
+            }
+        }
+        
+        return result;
+    }
+}
+
+Solution 2 (Improved Solution): Recursion + DP(Map)
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    Map<Integer, List<TreeNode>> map;
+    int hash;
+    
+    public List<TreeNode> generateTrees(int n) {
+        if (n == 0) {
+            return new ArrayList<TreeNode>();
+        } else {
+            map = new HashMap<>();
+            hash = n;
+            return generate(1, n);
+        }
+    }
+    
+    private List<TreeNode> generate(int start, int end) {
+        List<TreeNode> result = new ArrayList<TreeNode>();
+        
+        if (start > end) {
+            result.add(null);
+            return result;
+        }
+     
+        for (int root = start; root <= end; root++) {
+            int leftKey = start * hash + (root - 1);
+            int rightKey = (root + 1) * hash + end;
+            if (!map.containsKey(leftKey)) {
+                map.put(leftKey, generate(start, root - 1));
+            }
+            if (!map.containsKey(rightKey)) {
+                map.put(rightKey, generate(root + 1, end));
+            }
+            List<TreeNode> leftList = map.get(leftKey);
+            List<TreeNode> rightList = map.get(rightKey);
+            for (TreeNode leftNode: leftList) {
+                for (TreeNode rightNode: rightList) {
+                    TreeNode rootNode = new TreeNode(root);  
+                    rootNode.left = leftNode;
+                    rootNode.right = rightNode;
+                    result.add(rootNode);
+                }
+            }
+        }
+        
+        return result;
+    }
+}

@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 124
+* Medium: 126
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 016 3Sum Closest
@@ -30,6 +30,7 @@ Covered Questions
 	* 090 Subsets II
 	* 092 Reverse Linked List II
 	* 094 Binary Tree Inorder Traversal
+	* 095 Unique Binary Search Trees II
 	* 096 Unique Binary Search Trees
 	* 103 Binary Tree Zigzag Level Order Traversal
 	* 105 Construct Binary Tree from Preorder and Inorder Traversal
@@ -128,6 +129,7 @@ Covered Questions
 	* 384 Shuffle an Array
 	* 386 Lexicographical Numbers
 	* 388 Longest Absolute File Path
+	* 392 Is Subsequence
 
 * Hard: 16
 	* 033 Search in Rotated Sorted Array
