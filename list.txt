@@ -125,6 +125,8 @@ Medium:
 386 Lexicographical Numbers
 388 Longest Absolute File Path
 392 Is Subsequence
+393 UTF-8 Validation
+394 Decode String
 
 Hard:
 033 Search in Rotated Sorted Array

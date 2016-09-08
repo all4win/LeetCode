@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 126
+* Medium: 128
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 016 3Sum Closest
@@ -130,6 +130,8 @@ Covered Questions
 	* 386 Lexicographical Numbers
 	* 388 Longest Absolute File Path
 	* 392 Is Subsequence
+	* 393 UTF-8 Validation
+	* 394 Decode String
 
 * Hard: 16
 	* 033 Search in Rotated Sorted Array

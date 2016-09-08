@@ -1,0 +1,41 @@
+public class Solution {
+    int[] mask = {0x00, 0x80, 0xC0, 0xE0, 0xF0, 0xF8};
+    
+    public boolean validUtf8(int[] data) {
+        if (data == null) {
+            return true;
+        }
+        
+        int counter = 0;
+        boolean noError = true;
+        
+        for (int i = 0; i < data.length && noError; i++) {
+            int numOfByte = findNumOfByte(data[i]);
+            if (numOfByte > 4) {
+                noError = false;
+            }
+            
+            if ((counter > 0 && numOfByte != 1)
+                || (counter == 0 && numOfByte == 1)) {
+                    noError = false;
+            } else {
+                if (counter > 0) {
+                    counter -= 1;
+                } else {
+                    counter = (numOfByte > 0) ? numOfByte - 1 : 0;
+                }
+            }
+        }
+        
+        return (noError && counter == 0);
+    }
+    
+    private int findNumOfByte(int num) {
+        for (int i = 0; i < mask.length; i++) {
+            if ((mask[i] & num) != mask[i]) {
+                return i - 1;
+            }
+        }
+        return 5;
+    }
+}
