@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 128
+* Medium: 129
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 016 3Sum Closest
@@ -132,6 +132,7 @@ Covered Questions
 	* 392 Is Subsequence
 	* 393 UTF-8 Validation
 	* 394 Decode String
+	* 395 Longest Substring with At Least K Repeating Characters
 
 * Hard: 16
 	* 033 Search in Rotated Sorted Array
