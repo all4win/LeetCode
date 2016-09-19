@@ -138,6 +138,7 @@ Hard:
 146 LRU Cache
 159 Longest Substring with At Most Two Distinct Characters
 265 Paint House II
+269 Alien Dictionary
 287 Find the Duplicate Number
 291 Word Pattern II
 296 Best Meeting Point
@@ -145,4 +146,4 @@ Hard:
 312 Burst Balloons
 340 Longest Substring with At Most K Distinct Characters
 380 Insert Delete GetRandom O(1)
-381. Insert Delete GetRandom O(1) - Duplicates allowed
+381 Insert Delete GetRandom O(1) - Duplicates allowed

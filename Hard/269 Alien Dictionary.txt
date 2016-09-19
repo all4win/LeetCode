@@ -1,0 +1,68 @@
+public class Solution {
+    boolean[][] graph;
+    boolean[] usedLetters;
+    int[] indegree;
+    
+    
+    public String alienOrder(String[] words) {
+        if (words == null || words.length == 0) {
+            return "";
+        }
+        graph = new boolean[26][26];
+        usedLetters = new boolean[26];
+        indegree = new int[26];
+        String prev = words[0];
+        for (String cur : words) {
+            update(prev, cur);
+            prev = cur;
+        }
+        return tpSort();
+    }
+    
+    private String tpSort() {
+        StringBuilder order = new StringBuilder();
+        Deque<Integer> queue = new ArrayDeque<>();
+        for (int i = 0; i < 26; i++) {
+            if (usedLetters[i] && indegree[i] == 0) {
+                queue.add(i);
+                usedLetters[i] = false;
+            }
+        }
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            order.append((char)(node + 'a'));
+            for (int i = 0; i < 26; i++) {
+                if (graph[node][i]) {
+                    int next = i;
+                    indegree[next] -= 1;
+                    if (indegree[next] == 0) {
+                        queue.add(next);
+                        usedLetters[next] = false;
+                    }
+                }
+            }
+        }
+        for (int i : indegree) {
+            if (i != 0) {
+                return "";
+            }
+        }
+        return order.toString();
+    }
+    
+    private void update(String prev, String cur) {
+        boolean edgeFound = false;
+        for (int i = 0; i < cur.length(); i++) {
+            char curChar = cur.charAt(i);
+            usedLetters[curChar - 'a'] = true;
+            if (!edgeFound && i < prev.length()) {
+                char prevChar = prev.charAt(i);
+                edgeFound = (curChar != prevChar);
+                if (edgeFound && !graph[prevChar - 'a'][curChar - 'a']) {
+                    graph[prevChar - 'a'][curChar - 'a'] = true;
+                    indegree[curChar - 'a'] += 1;
+                }
+            }
+        }
+    }
+}
