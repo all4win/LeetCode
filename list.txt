@@ -134,9 +134,11 @@ Hard:
 051 N-Queens Complete
 051 N-Queens
 052 N-Queens
+123 Best Time to Buy and Sell Stock III
 145 Binary Tree Postorder Traversal
 146 LRU Cache
 159 Longest Substring with At Most Two Distinct Characters
+188 Best Time to Buy and Sell Stock IV
 265 Paint House II
 287 Find the Duplicate Number
 291 Word Pattern II
@@ -145,4 +147,4 @@ Hard:
 312 Burst Balloons
 340 Longest Substring with At Most K Distinct Characters
 380 Insert Delete GetRandom O(1)
-381. Insert Delete GetRandom O(1) - Duplicates allowed
+381 Insert Delete GetRandom O(1) - Duplicates allowed
