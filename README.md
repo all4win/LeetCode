@@ -134,7 +134,7 @@ Covered Questions
 	* 394 Decode String
 	* 395 Longest Substring with At Least K Repeating Characters
 
-* Hard: 18
+* Hard: 19
 	* 033 Search in Rotated Sorted Array
 	* 051 N-Queens Complete
 	* 051 N-Queens
@@ -145,6 +145,7 @@ Covered Questions
 	* 159 Longest Substring with At Most Two Distinct Characters
 	* 188 Best Time to Buy and Sell Stock IV
 	* 265 Paint House II
+	* 269 Alien Dictionary
 	* 287 Find the Duplicate Number
 	* 291 Word Pattern II
 	* 296 Best Meeting Point
