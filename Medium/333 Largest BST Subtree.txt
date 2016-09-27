@@ -1,0 +1,43 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int largestBSTSubtree(TreeNode root) {
+        return search(root)[0];
+    }
+    
+    private int[] search(TreeNode node) {
+        // result[0]: size;        result[1]: 0(BST), 1(not BST)
+        // result[2]: lower bound; result[3]: upper bound
+        int[] result = new int[4];
+        if (node == null) {
+            return result;
+        }
+        
+        int[] left = search(node.left);
+        if (node.left == null) {
+            left[2] = node.val;
+            left[3] = node.val - 1;
+        }
+        int[] right = search(node.right);
+        if (node.right == null) {
+            right[2] = node.val + 1;
+            right[3] = node.val;
+        }
+        if (left[1] == 0 && right[1] == 0 && left[3] < node.val && node.val < right[2]) {
+            result[0] = left[0] + right[0] + 1;
+            result[2] = left[2];
+            result[3] = right[3];
+            return result;
+        }
+        result[0] = Math.max(left[0], right[0]);
+        result[1] = 1;
+        return result;
+    }
+}

@@ -1,0 +1,20 @@
+public class Solution {
+    public boolean canMeasureWater(int x, int y, int z) {
+        if (z > x + y) {
+            return false;
+        }
+        if (z == 0) {
+            return true;
+        }
+        int gcd = 1;
+        int min = (x < y) ? x : y;
+        int max = (x < y) ? y : x;
+        while (min > 0) {
+            int temp = min;
+            min = max % min;
+            max = temp;
+        }
+        gcd = max;
+        return z % gcd == 0;
+    }
+}

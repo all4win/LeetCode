@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 129
+* Medium: 132
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 016 3Sum Closest
@@ -101,6 +101,7 @@ Covered Questions
 	* 323 Number of Connected Components in an Undirected Graph
 	* 328 Odd Even Linked List
 	* 331 Verify Preorder Serialization of a Binary Tree
+	* 333 Largest BST Subtree
 	* 334 Increasing Triplet Subsequence
 	* 337 House Robber III
 	* 338 Counting Bits
@@ -108,11 +109,13 @@ Covered Questions
 	* 343 Integer Break
 	* 347 Top K Frequent Elements
 	* 348 Design Tic-Tac-Toe
+	* 353 Design Snake Game
 	* 357 Count Numbers with Unique Digits
 	* 360 Sort Transformed Array
 	* 361 Bomb Enemy
 	* 362 Design Hit Counter
 	* 364 Nested List Weight Sum II
+	* 365 Water and Jug Problem
 	* 366 Find Leaves of Binary Tree
 	* 367 Valid Perfect Square
 	* 368 Largest Divisible Subset
