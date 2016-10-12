@@ -1,0 +1,49 @@
+public class Solution {
+    public int longestIncreasingPath(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return 0;
+        }
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int[][] pathLen = new int[m][n];
+        int max = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (pathLen[i][j] == 0) {
+                    search(matrix, i, j, pathLen);
+                }
+                max = Math.max(max, pathLen[i][j]);
+            }
+        }
+        return max;
+    }
+    
+    private void search(int[][] matrix, int i, int j, int[][] pathLen) {
+        int cur = matrix[i][j];
+        if (i > 0 && matrix[i - 1][j] > cur) {
+            if (pathLen[i - 1][j] == 0) {
+                search(matrix, i - 1, j, pathLen);
+            }
+            pathLen[i][j] = Math.max(pathLen[i][j], pathLen[i - 1][j] + 1);
+        }
+        if (i < matrix.length - 1 && matrix[i + 1][j] > cur) {
+            if (pathLen[i + 1][j] == 0) {
+                search(matrix, i + 1, j, pathLen);
+            }
+            pathLen[i][j] = Math.max(pathLen[i][j], pathLen[i + 1][j] + 1);
+        }
+        if (j > 0 && matrix[i][j - 1] > cur) {
+            if (pathLen[i][j - 1] == 0) {
+                search(matrix, i, j - 1, pathLen);
+            }
+            pathLen[i][j] = Math.max(pathLen[i][j], pathLen[i][j - 1] + 1);
+        }
+        if (j < matrix[0].length - 1 && matrix[i][j + 1] > cur) {
+            if (pathLen[i][j + 1] == 0) {
+                search(matrix, i, j + 1, pathLen);
+            }
+            pathLen[i][j] = Math.max(pathLen[i][j], pathLen[i][j + 1] + 1);
+        }
+        pathLen[i][j] = Math.max(pathLen[i][j], 1);
+    }
+}

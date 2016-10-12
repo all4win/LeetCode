@@ -137,7 +137,7 @@ Covered Questions
 	* 394 Decode String
 	* 395 Longest Substring with At Least K Repeating Characters
 
-* Hard: 19
+* Hard: 20
 	* 033 Search in Rotated Sorted Array
 	* 051 N-Queens Complete
 	* 051 N-Queens
@@ -154,6 +154,7 @@ Covered Questions
 	* 296 Best Meeting Point
 	* 305 Number of Islands II
 	* 312 Burst Balloons
+	* 329 Longest Increasing Path in a Matrix
 	* 340 Longest Substring with At Most K Distinct Characters
 	* 380 Insert Delete GetRandom O(1)
 	* 381 Insert Delete GetRandom O(1) - Duplicates allowed
