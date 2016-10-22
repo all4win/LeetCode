@@ -1,0 +1,64 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Codec {
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        LinkedList<TreeNode> list = new LinkedList<>();
+        list.add(root);
+        while (!list.isEmpty()) {
+            TreeNode node = list.poll();
+            if (node == null) {
+                sb.append("null,");
+            } else {
+                sb.append(node.val + ",");
+                list.add(node.left);
+                list.add(node.right);
+            }
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        String[] strings = data.split(",");
+        TreeNode head;
+        LinkedList<TreeNode> list = new LinkedList<>();
+        if (!strings[0].equals("null")) {
+            head = new TreeNode(Integer.parseInt(strings[0]));
+            list.add(head);
+        } else {
+            head = null;
+        }
+        int i = 1;
+        while (!list.isEmpty()) {
+            TreeNode node = list.poll();
+            if (!strings[i].equals("null")) {
+                TreeNode leftNode = new TreeNode(Integer.parseInt(strings[i]));
+                node.left = leftNode;
+                list.add(leftNode);
+            }
+            i += 1;
+            if (!strings[i].equals("null")) {
+                TreeNode rightNode = new TreeNode(Integer.parseInt(strings[i]));
+                node.right = rightNode;
+                list.add(rightNode);
+            }
+            i += 1;
+        }
+        return head;
+    }
+}
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.deserialize(codec.serialize(root));
