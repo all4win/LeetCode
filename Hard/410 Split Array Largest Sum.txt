@@ -1,0 +1,39 @@
+public class Solution {
+    public int splitArray(int[] nums, int m) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        long ub = 0;
+        long lb = 0;
+        for (int i : nums) {
+            ub += i;
+            lb = Math.max(lb, i);
+        }
+        lb = Math.max(lb, ub / m);
+        while (lb < ub) {
+            long mid = (ub - lb) / 2 + lb;
+            if (isSplitable(nums, mid, m)) {
+                ub = mid;
+            } else {
+                lb = mid + 1;
+            }
+        }
+        return (int) lb;
+    }
+    
+    private boolean isSplitable(int[] nums, long sum, int m) {
+        int count = 1;
+        int tempSum = 0;
+        for (int i : nums) {
+            tempSum += i;
+            if (tempSum > sum) {
+                count += 1;
+                if (count > m) {
+                    return false;
+                }
+                tempSum = i;
+            }
+        }
+        return true;
+    }
+}

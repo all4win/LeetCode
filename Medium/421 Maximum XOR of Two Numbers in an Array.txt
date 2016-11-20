@@ -1,0 +1,57 @@
+public class Solution {
+    public int findMaximumXOR(int[] nums) {
+        int result = 0;
+        int max = 1;
+        int count = 0;
+        for (int num : nums) {
+            while (max < num) {
+                max =  (max << 1) + 1;
+                count += 1;
+            } 
+        }
+        Trie root = new Trie();
+        for (int num : nums) {
+            int mask = 1 << count;
+            Trie node1 = root;
+            Trie node2 = root;
+            int temp = 0;
+            while (mask > 0) {
+                if (node1.one == null) {
+                        node1.one = new Trie();
+                        node1.zero = new Trie();
+                }
+                if (node2.one == null) {
+                        node2.one = new Trie();
+                        node2.zero = new Trie();
+                }
+                if ((num & mask) > 0) {
+                    node1.one.val = true;
+                    node1 = node1.one;
+                    if (node2.zero.val) {
+                        node2 = node2.zero;
+                        temp += mask;
+                    } else {
+                        node2 = node2.one;
+                    }
+                } else {
+                    node1.zero.val = true;
+                    node1 = node1.zero;
+                    if (node2.one.val) {
+                        node2 = node2.one;
+                        temp += mask;
+                    } else {
+                        node2 = node2.zero;
+                    }
+                }
+                mask = mask >> 1;
+            }
+            result = Math.max(result, temp);
+        }
+        return result;
+    }
+    
+    class Trie {
+        boolean val;
+        Trie one, zero;
+    }
+}
