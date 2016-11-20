@@ -3,7 +3,7 @@ LeetCode Solution Code by Tiancheng Gong
 
 Covered Questions
 
-* Medium: 132
+* Medium: 134
 	* 011 Container With Most Water
 	* 012 Integer to Roman
 	* 016 3Sum Closest
@@ -136,8 +136,10 @@ Covered Questions
 	* 393 UTF-8 Validation
 	* 394 Decode String
 	* 395 Longest Substring with At Least K Repeating Characters
+	* 398 Random Pick Index
+	* 421 Maximum XOR of Two Numbers in an Array
 
-* Hard: 20
+* Hard: 23
 	* 033 Search in Rotated Sorted Array
 	* 051 N-Queens Complete
 	* 051 N-Queens
@@ -149,12 +151,15 @@ Covered Questions
 	* 188 Best Time to Buy and Sell Stock IV
 	* 265 Paint House II
 	* 269 Alien Dictionary
+	* 273 Integer to English Words
 	* 287 Find the Duplicate Number
 	* 291 Word Pattern II
 	* 296 Best Meeting Point
+	* 297 Serialize and Deserialize Binary Tree
 	* 305 Number of Islands II
 	* 312 Burst Balloons
 	* 329 Longest Increasing Path in a Matrix
 	* 340 Longest Substring with At Most K Distinct Characters
 	* 380 Insert Delete GetRandom O(1)
 	* 381 Insert Delete GetRandom O(1) - Duplicates allowed
+	* 410 Split Array Largest Sum
